@@ -1,0 +1,3 @@
+# promtur
+npm i,
+gulp

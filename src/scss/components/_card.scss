@@ -1,0 +1,110 @@
+.card {
+    width: calc(25% - 30px);
+    &__pic {
+        border-radius: 8px;
+        background: linear-gradient(180deg, #BDBDBD 0%, #FFF 100%);
+        position: relative;
+        margin-bottom: 6px;
+    }
+
+    &__status {
+        padding: 1px 10px;
+        position: absolute;
+        right: 8px;
+        top: 8px;
+        color: #000;
+        font-family: Inter;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 176.5%; /* 17.65px */
+        border-radius: 51.32px;
+        background: rgba(255, 255, 255, 0.40);
+        z-index: 1;
+    }
+
+    &__text {
+    }
+
+    &__name {
+        color: #000;
+        font-family: Inter;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 176.5%; /* 42.36px */
+        letter-spacing: 0.24px;
+    }
+
+    &__info {
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 176.5%;
+        color: #000;
+        margin-bottom: 15px;
+    }
+
+    &__info-item {
+        display: flex;
+        & span {
+            color: rgba(0, 0, 0, 0.60);
+            flex: 1;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            &::after {
+                content: "";
+                background: url(../img/icons/point.svg);
+                background-repeat: no-repeat;
+                background-repeat: repeat-x;
+                flex: 1;
+                height: 2px;
+                padding-bottom: 8px;
+            }
+        }
+        & b {
+            color: #000;
+        }
+        &:not(:last-child) {
+            margin-bottom: 2px;
+        }
+    }
+
+    &__btn {
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 176.5%; /* 28.24px */
+        letter-spacing: 0.16px;
+        padding: 2px 15px;
+    }
+
+    &__swiper {
+    }
+
+    &__swiper-wrapper {
+    }
+
+    &__slide {
+        overflow: hidden;
+        border-radius: 5px;
+        position: relative;
+        padding-bottom: 68%;
+        & img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: 0;
+            object-fit: cover;
+            object-position: center;
+            position: absolute;
+        }
+    }
+}
+
