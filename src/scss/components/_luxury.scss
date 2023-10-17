@@ -1,0 +1,106 @@
+.luxury {
+    padding-bottom: 120px;
+    @media (max-width: 1023px) {
+        padding-bottom: 90px;
+    }
+    @media (max-width: 767px) {
+        padding-bottom: 70px;
+    }
+    @media (max-width: 539px) {
+        padding-bottom: 33px;
+    }
+    &__content {
+        display: flex;
+        gap: 70px;
+        align-items: center;
+        @media (max-width: 1023px) {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__text {
+        flex: 0 0 40%;
+        padding-top: 10px;
+        position: relative;
+        @media (max-width: 1023px) {
+            flex: 0 0 100%;
+        }
+        @media (max-width: 539px) {
+            padding: 24px 20px;
+        }
+        & p {
+            color: #000;
+            font-family: Inter;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 137.023%; /* 21.924px */
+            margin-bottom: 24px;
+            z-index: 1;
+            position: relative;
+            @media (max-width: 539px) {
+                color: #fff;
+                font-size: 12px;
+                margin-bottom: 11px;
+            }
+        }
+        & .bg {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            @media (max-width: 539px) {
+                display: block;
+            }
+        }
+    }
+
+    &__text-title {
+        margin-bottom: 30px;
+        z-index: 1;
+        position: relative;
+        @media (max-width: 539px) {
+            color: #fff;
+            margin-bottom: 11px;
+        }
+        & span {
+            display: block;
+            white-space: nowrap;
+        }
+    }
+
+    &__text-btn {
+        padding: 10px 24px;
+        color: #000;
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 151.3%; /* 24.208px */
+        z-index: 1;
+        position: relative;
+        @media (max-width: 539px) {
+            background: #fff;
+            color: #000;
+            border: none;
+            padding: 7px 17px;
+            font-size: 14px;
+        }
+    }
+
+    &__pic {
+        @media (max-width: 1023px) {
+            margin: 0 auto;
+        }
+        @media (max-width: 539px) {
+            display: none;
+        }
+        & img {
+            width: 100%;
+        }
+    }
+}

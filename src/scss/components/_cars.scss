@@ -1,11 +1,28 @@
 .cars {
     padding-top: 68px;
     padding-bottom: 113px;
+    @media (max-width: 1023px) {
+        padding-top: 40px;
+        padding-bottom: 90px;
+    }
+    @media (max-width: 767px) {
+        padding-top: 30px;
+        padding-bottom: 70px;
+    }
+    @media (max-width: 539px) {
+        padding-top: 13px;
+        padding-bottom: 33px;
+    }
     &__header {
         display: flex;
         flex-direction: column;
         row-gap: 37px;
         margin-bottom: 37px;
+        @media (max-width: 539px) {
+            flex-direction: column-reverse;
+            row-gap: 11px;
+            margin-bottom: 15px;
+        }
     }
 
     &__header-text {
@@ -13,9 +30,16 @@
         justify-content: space-between;
         align-items: center;
         gap: 20px;
+        @media (max-width: 767px) {
+            flex-wrap: wrap;
+            gap: 11px;
+        }
     }
 
     &__header-title {
+        @media (max-width: 767px) {
+            flex: 0 0 100%;
+        }
     }
 
     &__header-filter {
@@ -26,11 +50,17 @@
 
     &__header-filter-item {
         border-radius: 51.32px;
-        color: #FFF;
         font-size: 16px;
         font-weight: 400;
         line-height: 176.5%; /* 28.24px */
         padding: 3px 20px;
+        @media (max-width: 767px) {
+            padding: 13px 25px;
+        }
+        @media (max-width: 539px) {
+            font-size: 10px;
+            padding: 7px 22px;
+        }
     }
 
     &__header-brand {
@@ -39,12 +69,37 @@
     &__brand-list {
         display: flex;
         column-gap: 45px;
+        @media (max-width: 1204px) {
+            width: 100%;
+            overflow: auto;
+        }
+        @media (max-width: 539px) {
+            column-gap: 20px;
+        }
     }
 
     &__brand-item {
         display: flex;
         justify-content: center;
-        align-items: center;
+        flex: 1;
+        cursor: pointer;
+        &.active {
+            & img {
+                opacity: 1;
+            }   
+        }
+        &:hover {
+            & img {
+                opacity: 1;
+            }
+        }
+        & img {
+            opacity: 0.1;
+            transition: .2s;
+            @media (max-width: 539px) {
+                max-width: 69px;
+            }
+        }
     }
 
     &__list {
@@ -52,8 +107,17 @@
         flex-wrap: wrap;
         column-gap: 40px;
         row-gap: 50px;
+        @media (max-width: 539px) {
+            column-gap: 12px;
+            row-gap: 18px;
+        }
     }
 
+}
 
-
+.nothing {
+    display: none;
+    &.active {
+        display: block;
+    }
 }

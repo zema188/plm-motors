@@ -1,0 +1,90 @@
+.advantages {
+    padding-bottom: 145px;
+    @media (max-width: 1023px) {
+        padding-bottom: 90px;
+    }
+    @media (max-width: 767px) {
+        padding-bottom: 70px;
+    }
+    @media (max-width: 539px) {
+        padding-bottom: 33px;
+    }
+    &__content {
+    }
+
+    &__title {
+        text-transform: none;
+        margin-bottom: 45px;
+        @media (max-width: 539px) {
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+    }
+
+    &__list {
+        display: flex;
+        gap: 20px;
+        @media (max-width: 1023px) {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__list-item {
+        border-radius: 8px;
+        background: #FFF;
+        padding: 20px 13px 20px 20px;
+        flex: 0 0 calc(25% - 15px);
+        @media (max-width: 1023px) {
+            flex: 0 0 calc(50% - 10px);
+        }
+        @media (max-width: 539px) {
+            flex: 0 0 100%;
+        }
+        & p {
+            color: #000;
+            font-family: Inter;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140.8%; /* 19.712px */
+            @media (max-width: 539px) {
+                font-size: 12px;
+            }
+        }
+    }
+
+    &__item-icon {
+        margin-bottom: 40px;
+        @media (max-width: 539px) {
+            margin-bottom: 23px;
+        }
+        & img {
+            @media (max-width: 539px) {
+                width: 35px;
+                height: 35px;
+            }
+        }
+    }
+
+    &__item-title {
+        color: #000;
+        font-family: Inter;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 108.8%;
+        margin-bottom: 15px;
+        @media (max-width: 539px) {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 108.8%;
+            margin-bottom: 10px;
+        }
+        & span {
+            display: block;
+            @media (max-width: 539px) {
+                display: inline-block;
+            }
+        }
+    }
+}

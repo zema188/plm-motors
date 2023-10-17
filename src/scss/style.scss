@@ -124,6 +124,10 @@ main {
   margin: 0 auto;
   padding-left: 23px;
   padding-right: 23px;
+  @media (max-width: 1023px) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 
 .title {
@@ -134,6 +138,10 @@ main {
   font-weight: 500;
   line-height: 114.3%; /* 48.006px */
   letter-spacing: 0.84px;
+  text-transform: uppercase;
+  @media (max-width: 539px) {
+    font-size: 22px;
+  }
 }
 
 .btn {
@@ -154,15 +162,26 @@ main {
   border: 1px solid #FFF;
   padding: 1px 12px;
   transition: .2s;
-
+  &:hover {
+    // color: rgba(255, 255, 255, 0.7);
+    // border: 1px solid rgba(255, 255, 255, 0.7);
+  }
   &_all-black {
     color: #FFF;
     border: 1px solid #000;
     background: #000;
+    &:hover {
+      // color: rgba(255, 255, 255, 0.7);
+      // border: 1px solid rgba(0, 0, 0, 0.7);
+    }
   }
 
   &_black {
     color: #000;
     border: 1px solid #000;
+    &:hover {
+      // color: rgba(0, 0, 0, 0.7);
+      // border: 1px solid rgba(0, 0, 0, 0.7);
+    }
   }
 }

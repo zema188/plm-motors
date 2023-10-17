@@ -9,10 +9,24 @@
       max-width: 877px;
       padding-top: 10px;
       padding-bottom: 10px;
+      // height: 57px;
+      @media (max-width: 1023px) {
+            padding-top: 27px;
+            padding-bottom: 27px;
+      }
+      @media (max-width: 1023px) {
+            gap: 0;
+      }
       &__nav {
             display: flex;
             align-items: center;
-            gap: 45px;
+            // transform: translate(0, -250%);
+            &.anim {
+                  animation: animNav 1s ease forwards 1.4s;
+            }
+            @media (max-width: 1023px) {
+                  display: none;
+            }
       }
 
       &__nav-item {
@@ -24,115 +38,186 @@
             line-height: normal;
             letter-spacing: 1.2px;
             text-transform: uppercase;
+            transition: .5s;
+            padding: 0 22.5px;
+            &:first-child {
+                  padding: 0 22.5px 0 0;
+            }
+            &:last-child {
+                  padding: 0 0 0 22.5px;
+            }
+            &.opacity {
+                  opacity: 0.5;
+            }
+            &.active {
+                  opacity: 1;
+            }
       }
 
       &__logo {
+            // position: absolute;
+            // left: 50%;
+            // top: 50vh;
+            // z-index: 5;
+            // transform: translate(-50%, -50%);
+            &.anim {
+                  animation: animHeaderLogo 1.5s ease-in-out forwards;
+            }
+            @media (max-width: 1023px) {
+                  flex: 1;
+                  display: flex;
+                  justify-content: center;
+                  margin-left: 19px;
+            }
+            & img {
+                  @media (max-width: 539px) {
+                        width: 77px;
+                  }
+            }
       }
 }
-.logo {
+
+
+@keyframes animHeaderLogo {
+      from {
+      }
+      to {
+            left: 50%;
+            top: 10px;
+            transform: translate(-50%, 0%);
+      }
+}
+
+
+@keyframes animNav{
+      from {
+      }
+      to {
+            transform: translate(0, 0);
+      }
+}
+
+.nav-icon {
+      width: 19px;
+      height: 15px;
+      position: relative;
+      transform: rotate(0deg);
+      transition: .5s ease-in-out;
+      cursor: pointer;
+}
+.nav-icon span {
+      display: block;
+      position: absolute;
+      height: 1.62px;
+      width: 100%;
+      background: #fff;
+      border-radius: 10px;
+      opacity: 1;
+      left: 0;
+      transform: rotate(0deg);
+      transition: .25s ease-in-out;
+}
+
+.nav-icon span:nth-child(1) {
+      top: 0px;
+}
+.nav-icon span:nth-child(2) {
+      top: 6px;
+      width: 13px;
+      margin-left: 6px;
+}
+.nav-icon span:nth-child(3) {
+  top: 12px;
+}
+.nav-icon.open span {
+  left: 7px;
+}
+.nav-icon.open span:nth-child(1) {
+  top: 5px;
+  transform: rotate(135deg);
+  max-width: 30px;
+  left: 0px;
+}
+.nav-icon.open span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+.nav-icon.open span:nth-child(3) {
+  top: 5px;
+  transform: rotate(-135deg);
+  max-width: 30px;
+  left: 0px;
+}
+.header__menu {
+  display: none;
+  @media (max-width: 1023px) {
+    display: block;
+  }
 }
 
 
 
-// .nav-icon {
-//   width: 22px;
-//   height: 15px;
-//   position: relative;
-//   transform: rotate(0deg);
-//   transition: .5s ease-in-out;
-//   cursor: pointer;
-// }
-// .nav-icon span {
-//   display: block;
-//   position: absolute;
-//   height: 2.62px;
-//   width: 100%;
-//   background: var(--var-green);
-//   border-radius: 10px;
-//   opacity: 1;
-//   left: 0;
-//   transform: rotate(0deg);
-//   transition: .25s ease-in-out;
-// }
+.header-m {
+      background: #000;
+      max-width: 290px;
+      width: 63%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      left: -100%;
+      transition: .4s;
+      padding: 37px 15px 0px;
+      height: 100vh;
+      overflow: auto;
+      &.active {
+            left: 0;
+      }
+      &__content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding-bottom: 100px;
+      }
+      &__nav {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 50px;
+      }
+      &__nav-item {
+            color: #fff;
+      }
+}
+.header-m__close {
+      position: absolute;
+      right: 10px;
+      top: 19px;
+      & img {
+            width: 13px;
+            height: 13px;
+      }
+}
 
-// .nav-icon span:nth-child(1) {
-//   top: 0px;
-// }
-// .nav-icon span:nth-child(2) {
-//   top: 6px;
-// }
-// .nav-icon span:nth-child(3) {
-//   top: 12px;
-// }
-// .nav-icon.open span {
-//   left: 7px;
-// }
-// .nav-icon.open span:nth-child(1) {
-//   top: 5px;
-//   transform: rotate(135deg);
-//   max-width: 30px;
-//   left: 0px;
-// }
-// .nav-icon.open span:nth-child(2) {
-//   opacity: 0;
-//   left: -60px;
-// }
-// .nav-icon.open span:nth-child(3) {
-//   top: 5px;
-//   transform: rotate(-135deg);
-//   max-width: 30px;
-//   left: 0px;
-// }
-// .header__menu {
-//   display: none;
-//   @media (max-width: 1023px) {
-//     display: block;
-//   }
-// }
-
-
-
-// .header-m {
-//       background: #abe3c5;
-//       max-width: 290px;
-//       width: 63%;
-//       position: fixed;
-//       top: 0;
+// .black-block {
 //       left: 0;
-//       z-index: 10;
-//       left: -100%;
-//       transition: .4s;
-//       padding: 37px 15px 0px;
+//       top: 0;
+//       width: 100%;
 //       height: 100vh;
-//       overflow: auto;
-//       &.active {
-//             left: 0;
-//       }
-//       &__content {
-//             display: flex;
-//             flex-direction: column;
-//             height: 100%;
-//             padding-bottom: 100px;
-//       }
-//       &__nav {
-//             display: flex;
-//             flex-direction: column;
-//             margin-bottom: 50px;
-//       }
-//       &__nav-item {
-//             padding: 7px 0px;
-//       }
-//       & .header__auth {
-//             display: flex;
-//             justify-content: center;
-//             & a {
-//                   font-size: 15px;
-//             }
-//             margin-bottom: 20px;
+//       z-index: 2;
+//       background: #000;
+//       position: fixed;
+//       &.anim {
+//             animation: animBlackBlock 1.1s linear forwards 0.4s;
 //       }
 // }
-// .header-m__close {
-//       position: absolute;
-//       right: 10px;
-//       top: 19px;
-// }
+
+
+@keyframes animBlackBlock {
+      from {
+      }
+      to {
+            opacity: 0;
+            pointer-events: none;
+            display: block;
+      }
+}

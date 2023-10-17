@@ -12,11 +12,12 @@
 	<title>PLM motors</title>
 </head>
 <body>	
+
 	<div class="wrapper">
 		@@include("./header.html", {})
 		<main>
 			<section class="preview">
-				<div class="preview__content container">
+				<div class="preview__content ">
 					<div class="preview__swiper swiper">
 						<div class="preview__swiper-wrapper swiper-wrapper">
 							<div class="preview__slide swiper-slide">
@@ -34,7 +35,10 @@
 									</button>
 								</div>
 								<div class="preview__slide-pic">
-									<img src="./img/pic/preview-car.png" alt="Lamborghini">
+									<picture>
+										<source srcset="./img/pic/preview-car_mob.png" media="(max-width: 539px)" />
+										<img src="./img/pic/preview-car.png" alt="Lamborghini">
+									</picture>
 								</div>
 							</div>
 							<div class="preview__slide swiper-slide">
@@ -52,7 +56,10 @@
 									</button>
 								</div>
 								<div class="preview__slide-pic">
-									<img src="./img/pic/preview-car.png" alt="Lamborghini">
+									<picture>
+										<source srcset="./img/pic/preview-car_mob.png" media="(max-width: 539px)" />
+										<img src="./img/pic/preview-car.png" alt="Lamborghini">
+									</picture>
 								</div>
 							</div>
 							<div class="preview__slide swiper-slide">
@@ -70,7 +77,10 @@
 									</button>
 								</div>
 								<div class="preview__slide-pic">
-									<img src="./img/pic/preview-car.png" alt="Lamborghini">
+									<picture>
+										<source srcset="./img/pic/preview-car_mob.png" media="(max-width: 539px)" />
+										<img src="./img/pic/preview-car.png" alt="Lamborghini">
+									</picture>
 								</div>
 							</div>
 						</div>
@@ -93,54 +103,57 @@
 							АВТОМОБИЛИ
 						</div>
 						<div class="cars__header-filter">
-							<button class="cars__header-filter-item btn btn_all-black">
+							<button class="cars__header-filter-item btn btn_all-black" status="all">
 								Все автомобили
 							</button>
-							<button class="cars__header-filter-item btn btn_black">
+							<button class="cars__header-filter-item btn btn_black" status="in_stock">
 								В наличии
 							</button>
-							<button class="cars__header-filter-item btn btn_black">
+							<button class="cars__header-filter-item btn btn_black" status="on_way">
 								В пути
 							</button>
 						</div>
 					</div>
 					<div class="cars__header-brand">
 						<div class="cars__brand-list">
-							<div class="cars__brand-item">
+							<div class="cars__brand-item" brand="nio">
 								<img src="./img/icons/brand-1.svg" alt="brand">
 							</div>
-							<div class="cars__brand-item">
+							<div class="cars__brand-item" brand="audi">
 								<img src="./img/icons/brand-2.svg" alt="brand">
 							</div>
-							<div class="cars__brand-item">
+							<div class="cars__brand-item" brand="bmw">
 								<img src="./img/icons/brand-3.svg" alt="brand">
 							</div>
-							<div class="cars__brand-item">
+							<div class="cars__brand-item" brand="hondai">
 								<img src="./img/icons/brand-4.svg" alt="brand">
 							</div>
-							<div class="cars__brand-item">
+							<div class="cars__brand-item" brand="genesis">
 								<img src="./img/icons/brand-5.svg" alt="brand">
 							</div>
-							<div class="cars__brand-item">
+							<div class="cars__brand-item" brand="cadilac">
 								<img src="./img/icons/brand-6.svg" alt="brand">
 							</div>
-							<div class="cars__brand-item">
+							<div class="cars__brand-item" brand="mersedes">
 								<img src="./img/icons/brand-7.svg" alt="brand">
 							</div>
-							<div class="cars__brand-item">
+							<div class="cars__brand-item" brand="land-rover">
 								<img src="./img/icons/brand-8.svg" alt="brand">
 							</div>
-							<div class="cars__brand-item">
+							<div class="cars__brand-item" brand="lexux">
 								<img src="./img/icons/brand-9.svg" alt="brand">
 							</div>
-							<div class="cars__brand-item">
+							<div class="cars__brand-item" brand="kia">
 								<img src="./img/icons/brand-10.svg" alt="brand">
 							</div>
 						</div>
 					</div>
 				</div>
+				<div class="nothing">
+					Машины не найдены
+				</div>
 				<div class="cars__list">
-					<a class="card" href="#">
+					<div class="card" href="#" brand="audi" status="in_stock">
 						<div class="card__pic">
 							<div class="card__swiper swiper">
 								<div class="card__swiper-wrapper swiper-wrapper">
@@ -201,8 +214,8 @@
 								12 500 000 ₽
 							</button>
 						</div>
-					</a>
-					<a class="card" href="#">
+					</div>
+					<div class="card" href="#" brand="land-rover" status="in_stock">
 						<div class="card__pic">
 							<div class="card__swiper swiper">
 								<div class="card__swiper-wrapper swiper-wrapper">
@@ -263,8 +276,8 @@
 								12 500 000 ₽
 							</button>
 						</div>
-					</a>
-					<a class="card" href="#">
+					</div>
+					<div class="card" href="#" brand="bmw" status="on_way">
 						<div class="card__pic">
 							<div class="card__swiper swiper">
 								<div class="card__swiper-wrapper swiper-wrapper">
@@ -325,8 +338,8 @@
 								12 500 000 ₽
 							</button>
 						</div>
-					</a>
-					<a class="card" href="#">
+					</div>
+					<div class="card" href="#" brand="bmw" status="in_stock">
 						<div class="card__pic">
 							<div class="card__swiper swiper">
 								<div class="card__swiper-wrapper swiper-wrapper">
@@ -387,8 +400,8 @@
 								12 500 000 ₽
 							</button>
 						</div>
-					</a>
-					<a class="card" href="#">
+					</div>
+					<div class="card" href="#" brand="lamborghini" status="on_way">
 						<div class="card__pic">
 							<div class="card__swiper swiper">
 								<div class="card__swiper-wrapper swiper-wrapper">
@@ -449,8 +462,8 @@
 								12 500 000 ₽
 							</button>
 						</div>
-					</a>
-					<a class="card" href="#">
+					</div>
+					<div class="card" href="#" brand="bmw" status="on_way">
 						<div class="card__pic">
 							<div class="card__swiper swiper">
 								<div class="card__swiper-wrapper swiper-wrapper">
@@ -511,8 +524,8 @@
 								12 500 000 ₽
 							</button>
 						</div>
-					</a>
-					<a class="card" href="#">
+					</div>
+					<div class="card" href="#" brand="genesis" status="in_stock">
 						<div class="card__pic">
 							<div class="card__swiper swiper">
 								<div class="card__swiper-wrapper swiper-wrapper">
@@ -573,8 +586,8 @@
 								12 500 000 ₽
 							</button>
 						</div>
-					</a>
-					<a class="card" href="#">
+					</div>
+					<div class="card" href="#" brand="polaris" status="on_way">
 						<div class="card__pic">
 							<div class="card__swiper swiper">
 								<div class="card__swiper-wrapper swiper-wrapper">
@@ -635,13 +648,16 @@
 								12 500 000 ₽
 							</button>
 						</div>
-					</a>
+					</div>
 				</div>
 			</section>
 			<section class="stock">
 				<div class="stock__list container">
 					<div class="stock__item _black">
-						<img class="stock__item-pic" src="./img/pic/stock-1.png" alt="акция">
+						<picture>
+							<source srcset="./img/pic/stock-1_mob.png" media="(max-width: 1023px)" />
+							<img class="stock__item-pic" src="./img/pic/stock-1.png" alt="акция">
+						</picture>
 						<div class="stock__text">
 							<p>
 								Оклеим бампер бронепленкой
@@ -650,8 +666,10 @@
 								<button class="btn btn_black _pc">
 									Подробнее
 								</button>
-								<button class="btn _mobile">
-
+								<button class="_mobile">
+									<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11" fill="none">
+										<path d="M10.781 8.73174L10.7593 0.365239L2.39278 0.34353C2.30561 0.331729 2.21693 0.338793 2.13273 0.364245C2.04853 0.389697 1.97078 0.432943 1.90475 0.491055C1.83872 0.549167 1.78594 0.620787 1.75 0.701069C1.71405 0.78135 1.69577 0.868418 1.6964 0.956377C1.69703 1.04434 1.71655 1.13113 1.75364 1.21089C1.79073 1.29065 1.84452 1.36151 1.91138 1.41868C1.97823 1.47584 2.05659 1.51797 2.14114 1.54222C2.2257 1.56646 2.31447 1.57226 2.40146 1.55921L8.67091 1.58526L0.365193 9.89098C0.250043 10.0061 0.185353 10.1623 0.185353 10.3252C0.185353 10.488 0.250043 10.6442 0.365193 10.7593C0.480342 10.8745 0.63652 10.9392 0.799366 10.9392C0.962212 10.9392 1.11839 10.8745 1.23354 10.7593L9.53926 2.45361L9.56531 8.72306C9.56588 8.88599 9.63116 9.04203 9.74678 9.15684C9.8624 9.27164 10.0189 9.33582 10.1818 9.33524C10.3448 9.33467 10.5008 9.26939 10.6156 9.15377C10.7304 9.03815 10.7946 8.88165 10.794 8.71872L10.781 8.73174Z" fill="white"/>
+									</svg>
 								</button>
 							</a>
 						</div>
@@ -666,15 +684,123 @@
 								<button class="btn _pc">
 									Подробнее
 								</button>
-								<button class="btn _mobile">
-
+								<button class="_mobile">
+									<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11" fill="none">
+										<path d="M10.781 8.73174L10.7593 0.365239L2.39278 0.34353C2.30561 0.331729 2.21693 0.338793 2.13273 0.364245C2.04853 0.389697 1.97078 0.432943 1.90475 0.491055C1.83872 0.549167 1.78594 0.620787 1.75 0.701069C1.71405 0.78135 1.69577 0.868418 1.6964 0.956377C1.69703 1.04434 1.71655 1.13113 1.75364 1.21089C1.79073 1.29065 1.84452 1.36151 1.91138 1.41868C1.97823 1.47584 2.05659 1.51797 2.14114 1.54222C2.2257 1.56646 2.31447 1.57226 2.40146 1.55921L8.67091 1.58526L0.365193 9.89098C0.250043 10.0061 0.185353 10.1623 0.185353 10.3252C0.185353 10.488 0.250043 10.6442 0.365193 10.7593C0.480342 10.8745 0.63652 10.9392 0.799366 10.9392C0.962212 10.9392 1.11839 10.8745 1.23354 10.7593L9.53926 2.45361L9.56531 8.72306C9.56588 8.88599 9.63116 9.04203 9.74678 9.15684C9.8624 9.27164 10.0189 9.33582 10.1818 9.33524C10.3448 9.33467 10.5008 9.26939 10.6156 9.15377C10.7304 9.03815 10.7946 8.88165 10.794 8.71872L10.781 8.73174Z" fill="black"/>
+									</svg>
 								</button>
 							</a>
 						</div>
 					</div>
 				</div>
 			</section>
+			<section class="luxury">
+				<div class="luxury__content container">
+					<div class="luxury__text">
+						<div class="luxury__text-title title">
+							Мир роскоши 
+							<span>
+								и надежности
+							</span>
+						</div>
+						<p>
+							Наша компания «PREMIUM LIFE MOTORS» осуществляет полный спектр услуг по продаже авто, сервису, лизингу, сублизингу, сопровождению и оформлению, СБКТС и ЭПТС автомобилей премиум класса. Офис и шоу рум компании находится на первом этаже бизнес центра «PREMIUM WEST» по адресу Площадь шоу рума первого этажа более 1000 кв.м. 
+						</p>
+						<button class="luxury__text-btn btn btn_black">
+							О компании
+						</button>
+						<img class="bg" src="./img/pic/luxury-bg_mob.png" alt="Мир роскоши и надежности">
+					</div>
+					<div class="luxury__pic">
+						<img src="./img/pic/luxury.png" alt="Мир роскоши и надежности">
+					</div>
+				</div>
+			</section>
+			<section class="reviews">
+				<div class="reviews__content container">
+					<div class="reviews__title title">
+						<span>
+							С нами клиенты приобретают
+						</span>
+						автомобили
+						<p>
+							с выгодой до 25%
+						</p>
+					</div>
+					<div class="reviews__swiper swiper">
+						<div class="reviews__swiper-nav">
+							<div class="reviews__swiper-nav-btn reviews__swiper-prev">
+								<svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M6.09182 0.579097L0.191162 6.51046L6.09182 12.4418C6.14511 12.5118 6.21282 12.5695 6.29035 12.6111C6.36789 12.6526 6.45344 12.677 6.54123 12.6826C6.62901 12.6882 6.71697 12.6749 6.79916 12.6435C6.88134 12.6122 6.95583 12.5635 7.01759 12.5009C7.07934 12.4382 7.12691 12.3631 7.15708 12.2804C7.18726 12.1978 7.19932 12.1097 7.19247 12.022C7.18561 11.9343 7.16 11.8491 7.11735 11.7722C7.07471 11.6952 7.01604 11.6283 6.9453 11.5761L2.53055 7.12447L14.2766 7.12447C14.4395 7.12447 14.5956 7.05978 14.7108 6.94463C14.8259 6.82948 14.8906 6.6733 14.8906 6.51046C14.8906 6.34761 14.8259 6.19143 14.7108 6.07629C14.5956 5.96114 14.4395 5.89645 14.2766 5.89645L2.53055 5.89645L6.9453 1.44485C7.06011 1.32923 7.12428 1.17274 7.12371 1.0098C7.12313 0.846868 7.05785 0.690833 6.94223 0.576026C6.82661 0.46122 6.67012 0.397045 6.50718 0.397621C6.34424 0.398197 6.18821 0.463476 6.0734 0.579097H6.09182Z" fill="black"/>
+								</svg>
+							</div>
+							<div class="reviews__swiper-nav-btn reviews__swiper-next">
+								<svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M8.90818 0.579097L14.8088 6.51046L8.90818 12.4418C8.85489 12.5118 8.78718 12.5695 8.70965 12.6111C8.63211 12.6526 8.54656 12.677 8.45877 12.6826C8.37099 12.6882 8.28303 12.6749 8.20084 12.6435C8.11866 12.6122 8.04417 12.5635 7.98241 12.5009C7.92066 12.4382 7.87309 12.3631 7.84292 12.2804C7.81274 12.1978 7.80068 12.1097 7.80753 12.022C7.81439 11.9343 7.84 11.8491 7.88265 11.7722C7.92529 11.6952 7.98396 11.6283 8.0547 11.5761L12.4694 7.12447L0.723389 7.12447C0.560542 7.12447 0.404366 7.05978 0.289217 6.94463C0.174067 6.82948 0.109376 6.6733 0.109376 6.51046C0.109376 6.34761 0.174067 6.19143 0.289217 6.07629C0.404366 5.96114 0.560542 5.89645 0.723389 5.89645L12.4694 5.89645L8.0547 1.44485C7.93989 1.32923 7.87572 1.17274 7.87629 1.0098C7.87687 0.846868 7.94215 0.690833 8.05777 0.576026C8.17339 0.46122 8.32988 0.397045 8.49282 0.397621C8.65576 0.398197 8.81179 0.463476 8.9266 0.579097H8.90818Z" fill="black"/>
+								</svg>
+							</div>
+						</div>
+						<div class="reviews__swiper-wrapper swiper-wrapper">
+							<div class="reviews__slide swiper-slide">
+								<div class="reviews__slide-pic">
+									<img src="./img/pic/review.png" alt="отзыв">
+								</div>
+								<p>Genesis G90</p>
+							</div>
+							<div class="reviews__slide swiper-slide">
+								<div class="reviews__slide-pic">
+									<img src="./img/pic/review.png" alt="отзыв">
+								</div>
+								<p>Genesis G90</p>
+							</div>
+							<div class="reviews__slide swiper-slide">
+								<div class="reviews__slide-pic">
+									<img src="./img/pic/review.png" alt="отзыв">
+								</div>
+								<p>Genesis G90</p>
+							</div>
+							<div class="reviews__slide swiper-slide">
+								<div class="reviews__slide-pic">
+									<img src="./img/pic/review.png" alt="отзыв">
+								</div>
+								<p>Genesis G90</p>
+							</div>
+							<div class="reviews__slide swiper-slide">
+								<div class="reviews__slide-pic">
+									<img src="./img/pic/review.png" alt="отзыв">
+								</div>
+								<p>Genesis G90</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="present container">
+				<div class="present__content ">
+					<div class="present__content-text">
+						<div class="present__content-title title">
+							Автомобиль
+							<span>
+								под заказ к дверям
+							</span>
+							<span>
+								Вашего дома
+							</span>
+						</div>
+						<p>
+							Наша компания - это эксклюзивный поставщик премиум-класса автомобилей. Мы гордимся нашей богатой историей
+						</p>
+						<button class="present__content-btn btn btn_black">
+							Подобрать авто
+						</button>
+					</div>
+					<div class="present__content-pic">
+						<img src="./img/pic/present.png" alt="подарок">
+					</div>
+				</div>
+			</section>
 		</main>
+		@@include("./popup.html", {})
 		@@include("./footer.html", {})
 	</div>
 	<script src="js/jquery.js"></script>

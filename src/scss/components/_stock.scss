@@ -1,8 +1,21 @@
 .stock {
-
+    padding-bottom: 120px;
+    @media (max-width: 1023px) {
+        padding-bottom: 90px;
+    }
+    @media (max-width: 767px) {
+        padding-bottom: 70px;
+    }
+    @media (max-width: 539px) {
+        padding-bottom: 33px;
+    }
     &__list {
         display: flex;
         gap: 20px;
+        @media (max-width: 767px) {
+            flex-wrap: wrap;
+            gap: 16px;
+        }
     }
 
     &__item {
@@ -11,19 +24,32 @@
         position: relative;
         padding-bottom: 30%;
         flex: 0 0 calc(50% - 10px);
+        &:hover {
+            & .stock__item-pic {
+                transform: scale(1.1);
+            }
+        }
+        @media (max-width: 767px) {
+            flex: 0 0 100%;
+            padding-bottom: 60%;
+        }
         &._black {
             & .stock__text {
                 & p {
                     color: #000;
                 }
             }
+            & ._mobile {
+                background: #000;
+            }
         }
+
     }
 
     &__item-pic {
         width: 100%;
         max-width: 100%;
-        height: auto;
+        height: 100%;
         bottom: 0;
         left: 0;
         right: 0;
@@ -31,6 +57,7 @@
         object-fit: cover;
         object-position: center;
         position: absolute;
+        transition: .4s;
     }
 
     &__text {
@@ -43,6 +70,14 @@
         bottom: 17px;
         z-index: 1;
         align-items: center;
+        padding-top: 10px;
+        @media (max-width: 1023px) {
+            height: 100%;
+            align-items: flex-start;
+            padding-top: 22px;
+            left: 21px;
+            width: calc(100% - 28px);
+        }
         & p {
             color: #FFF;
             font-family: Inter;
@@ -50,6 +85,15 @@
             font-style: normal;
             font-weight: 400;
             line-height: 113.8%; /* 22.76px */
+            @media (max-width: 1023px) {
+                height: 100%;
+                display: flex;
+                justify-content: flex-end;
+                align-items: flex-end;
+            }
+            @media (max-width: 539px) {
+                font-size: 14px;
+            }
         }
     }
 
@@ -57,9 +101,24 @@
         & ._pc {
             padding: 4px 19px;
             font-size: 16px;
+            @media (max-width: 1023px) {
+                display: none;
+            }
         }
         & ._mobile {
             display: none;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #fff;
+            border-radius: 50%;
+            border: none;
+            padding: 0px;
+            @media (max-width: 1023px) {
+                display: flex;
+            }
         }
     }
 }
