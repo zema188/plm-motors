@@ -66,6 +66,11 @@
         font-weight: 400;
         line-height: 151.3%; /* 24.208px */
         padding: 11px 22px;
+        &:hover {
+            background: rgba(0, 0, 0, 0.2);
+            color: #fff;
+            border: 1px solid #fff;
+        }
         @media (max-width: 899px) {
             width: 100%;
         }
@@ -163,12 +168,25 @@
         top: 50%;
         transform: translate(0, -50%);
         z-index: 1;
+        transition: .2s;
         cursor: pointer;
+        &:hover {
+            background: rgba(255, 255, 255, 1);
+            & svg {
+                & path {
+                    fill: #000;
+                }
+            }
+        }
         @media (max-width: 539px) {
             width: 23px;
             height: 23px;
         }
-        & img {
+        & svg {
+            transition: .2s;
+            & path {
+                transition: .2s;
+            }
             @media (max-width: 539px) {
                 width: 5px;
                 height: 10px;
@@ -178,7 +196,7 @@
 
     &__swiper-next {
         right: 10px;
-        & img {
+        & svg {
             transform: rotate(180deg);
         }
     }
@@ -205,6 +223,10 @@
         position: relative;
         padding-bottom: 12%;
         overflow: hidden;
+        border: 2px solid transparent;
+        &.swiper-slide-thumb-active {
+            border: 2px solid #000;
+        }
         & img {
             width: 100%;
             max-width: 100%;

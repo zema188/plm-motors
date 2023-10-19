@@ -163,16 +163,14 @@ main {
   padding: 1px 12px;
   transition: .2s;
   &:hover {
-    // color: rgba(255, 255, 255, 0.7);
-    // border: 1px solid rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.2);
   }
   &_all-black {
     color: #FFF;
     border: 1px solid #000;
     background: #000;
     &:hover {
-      // color: rgba(255, 255, 255, 0.7);
-      // border: 1px solid rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.7);
     }
   }
 
@@ -180,8 +178,8 @@ main {
     color: #000;
     border: 1px solid #000;
     &:hover {
-      // color: rgba(0, 0, 0, 0.7);
-      // border: 1px solid rgba(0, 0, 0, 0.7);
+    background: rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(0, 0, 0, 0.9);
     }
   }
 }

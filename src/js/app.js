@@ -4,22 +4,15 @@ function changerActive(list) {
   }
   list = 0
 }
-
+const headerLogo = document.querySelector('.header__logo')
 
 //превью свайпер
 const previewSwiper = new Swiper('.preview__swiper', {
   slidesPerView: 1,
   spaceBetween: 0,
-  effect: "creative",
-  creativeEffect: {
-    prev: {
-      shadow: true,
-      translate: ["-120%", 0, -500],
-    },
-    next: {
-      shadow: true,
-      translate: ["120%", 0, -500],
-    },
+  // effect: "fade",
+  autoplay: {
+    delay: 5000,
   },
   pagination: {
     el: ".preview__swiper-pagination",
@@ -43,6 +36,9 @@ const carSwiper = new Swiper('.card__swiper', {
 const reviewsSwiper = new Swiper('.reviews__swiper', {
   slidesPerView: 3.2,
   spaceBetween: 10,
+  autoplay: {
+    delay: 4000,
+  },
   navigation: {
     nextEl: ".reviews__swiper-next",
     prevEl: ".reviews__swiper-prev",
@@ -431,14 +427,16 @@ window.addEventListener('resize', function(event){
   }
 })
 
-// //анимация начальная
-// window.addEventListener('load', function() {
-//   const blackBlock = document.querySelector('.black-block')
-//   const headerLogo = document.querySelector('.header__logo')
-//   const headerNav = document.querySelectorAll('.header__nav')
-//   blackBlock.classList.add('anim')
-//   headerLogo.classList.add('anim')
-//   headerNav.forEach(nav => {
-//     nav.classList.add('anim')
-//   });
-// });
+//анимация начальная
+window.addEventListener('load', function() {
+  const blackBlock = document.querySelector('.black-block')
+  const headerLogo = document.querySelector('.header__logo')
+  const headerNav = document.querySelectorAll('.header__nav')
+  const headerNavMob = document.querySelector('.header__menu')
+  blackBlock.classList.add('anim')
+  headerLogo.classList.add('anim')
+  headerNavMob.classList.add('anim')
+  headerNav.forEach(nav => {
+    nav.classList.add('anim')
+  });
+});

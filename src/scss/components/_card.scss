@@ -3,6 +3,7 @@
     height: auto;
     display: flex;
     flex-direction: column;
+    transition: .2s;
     &.hidden {
         display: none;
     }
@@ -158,3 +159,32 @@
     }
 }
 
+
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+  }
+  
+  .card{
+    position: relative;
+    transition-property: transform opacity;
+    transition-duration: .4s;
+  }
+  
+  .cards:before {
+    content: attr(data-content);
+    font-size: 22px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  
+  .cards.hide {
+    transform: scale(0);
+    opacity: 0;
+    pointer-events: none;
+  }

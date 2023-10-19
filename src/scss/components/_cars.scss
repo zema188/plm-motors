@@ -69,6 +69,7 @@
     &__brand-list {
         display: flex;
         column-gap: 45px;
+        transition: .2s;
         @media (max-width: 1204px) {
             width: 100%;
             overflow: auto;

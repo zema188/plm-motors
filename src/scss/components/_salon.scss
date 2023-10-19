@@ -67,11 +67,20 @@
         top: 50%;
         transform: translate(0, -50%);
         z-index: 1;
+        transition: .2s;
+        &:hover {
+        background: rgba(255, 255, 255, 1);
+            & svg {
+                & path {
+                    fill: #000;
+                }
+            }
+        }
         @media (max-width: 767px) {
             width: 27px;
             height: 27px;
         }
-        & img {
+        & svg {
             @media (max-width: 767px) {
                 width: 6px;
                 height: 12px;
@@ -87,7 +96,10 @@
         @media (max-width: 767px) {
             right: 2.3%;
         }
-        & img {
+        & svg {
+            & path {
+                transition: .2s;
+            }
             transform: rotate(180deg);
         }
     }

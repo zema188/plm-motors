@@ -1,5 +1,8 @@
 .header-w {
       background: #000;
+      position: sticky;
+      top: 0;
+      z-index: 10;
 }
 .header {
       display: flex;
@@ -9,18 +12,17 @@
       max-width: 877px;
       padding-top: 10px;
       padding-bottom: 10px;
-      // height: 57px;
+      height: 57px;
       @media (max-width: 1023px) {
             padding-top: 27px;
             padding-bottom: 27px;
-      }
-      @media (max-width: 1023px) {
+            justify-content: flex-end;
             gap: 0;
       }
       &__nav {
             display: flex;
             align-items: center;
-            // transform: translate(0, -250%);
+            transform: translate(0, -250%);
             &.anim {
                   animation: animNav 1s ease forwards 1.4s;
             }
@@ -55,19 +57,24 @@
       }
 
       &__logo {
-            // position: absolute;
-            // left: 50%;
-            // top: 50vh;
-            // z-index: 5;
-            // transform: translate(-50%, -50%);
+            position: absolute;
+            left: 50%;
+            top: 50vh;
+            z-index: 5;
+            transform: translate(-50%, -50%);
+            animation: animHeaderLogoBefore 1.7s linear infinite;
             &.anim {
-                  animation: animHeaderLogo 1.5s ease-in-out forwards;
+                  @media (max-width: 539px) {
+                        animation: animHeaderLogoMob 1.5s ease-in-out forwards;
+                  }
+                  @media (min-width: 540px) {
+                        animation: animHeaderLogo 1.5s ease-in-out forwards;
+                  }
             }
             @media (max-width: 1023px) {
                   flex: 1;
                   display: flex;
                   justify-content: center;
-                  margin-left: 19px;
             }
             & img {
                   @media (max-width: 539px) {
@@ -82,12 +89,33 @@
       from {
       }
       to {
-            left: 50%;
             top: 10px;
+            left: 50%;
             transform: translate(-50%, 0%);
       }
 }
 
+@keyframes animHeaderLogoBefore {
+      0% {
+            opacity: 1;
+      }
+      50% {
+            opacity: 0.5;
+      }
+      100% {
+            opacity: 1;
+      }
+}
+
+@keyframes animHeaderLogoMob {
+      from {
+      }
+      to {
+            top: 13.5px;
+            left: 50%;
+            transform: translate(-50%, 0%);
+      }
+}
 
 @keyframes animNav{
       from {
@@ -97,6 +125,13 @@
       }
 }
 
+@keyframes animNavMob{
+      from {
+      }
+      to {
+            transform: translate(0, 0);
+      }
+}
 .nav-icon {
       width: 19px;
       height: 15px;
@@ -150,6 +185,10 @@
 }
 .header__menu {
   display: none;
+  transform: translate(0, -250%);
+  &.anim {
+        animation: animNavMob  1s ease forwards 1.4s;
+  }
   @media (max-width: 1023px) {
     display: block;
   }
@@ -198,18 +237,18 @@
       }
 }
 
-// .black-block {
-//       left: 0;
-//       top: 0;
-//       width: 100%;
-//       height: 100vh;
-//       z-index: 2;
-//       background: #000;
-//       position: fixed;
-//       &.anim {
-//             animation: animBlackBlock 1.1s linear forwards 0.4s;
-//       }
-// }
+.black-block {
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: 2;
+      background: #000;
+      position: fixed;
+      &.anim {
+            animation: animBlackBlock 1.1s linear forwards 0.4s;
+      }
+}
 
 
 @keyframes animBlackBlock {
