@@ -74,9 +74,9 @@
         @media (max-width: 1023px) {
             height: 100%;
             align-items: flex-start;
-            padding-top: 22px;
+            padding-top: 35px;
             left: 21px;
-            width: calc(100% - 28px);
+            width: calc(100% - 35px);
         }
         & p {
             color: #FFF;
@@ -119,6 +119,27 @@
             @media (max-width: 1023px) {
                 display: flex;
             }
+        }
+    }
+}
+
+.page-stock {
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 30px 0px;
+    }
+    & .stock {
+        padding-bottom: 0px;
+        @media (max-width: 1023px) {
+            padding-bottom: 0px;
+        }
+        @media (max-width: 767px) {
+            padding-bottom: 0px;
+        }
+        @media (max-width: 539px) {
+            padding-bottom: 0px;
         }
     }
 }

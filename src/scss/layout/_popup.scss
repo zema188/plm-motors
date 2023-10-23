@@ -62,3 +62,53 @@
     }
   }
 
+.popup {
+
+  &__body {
+  }
+
+  &__content {
+  }
+
+  &__title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 20px;
+    @media (max-width: 539px) {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+  }
+
+  &__list {
+    margin-bottom: 30px;
+    & .input-w {
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &__btn {
+    padding: 13px 15px;
+    width: 150px;
+    margin: 0 auto;
+    &:hover {
+        background: rgba(0,0,0,.5);
+        border: 1px solid transparent;
+        color: #fff;
+    }
+  }
+}
+
+.main-form {
+  & .checkbox-w {
+    & a {
+      text-decoration: underline;
+      font-size: 18px;
+      line-height: 120%;
+    }
+  }
+}
+

@@ -4,12 +4,7 @@
     display: flex;
     flex-direction: column;
     transition: .2s;
-    &.hidden {
-        display: none;
-    }
-    &.active {
-        display: flex;
-    }
+    cursor: pointer;
     @media (max-width: 1023px) {
         width: calc(33.33% - 26.7px);
     }
@@ -131,6 +126,8 @@
     }
 
     &__swiper {
+        position: relative;
+        border-radius: 8px;
     }
 
     &__swiper-wrapper {
@@ -188,3 +185,29 @@
     opacity: 0;
     pointer-events: none;
   }
+
+  my-sizer-element {
+    width: calc(25% - 30px);
+    height: auto;
+    @media (max-width: 1023px) {
+        width: calc(33.33% - 26.7px);
+    }
+    @media (max-width: 767px) {
+        width: calc(50% - 20px);
+    }
+    @media (max-width: 539px) {
+        width: calc(50% - 6px);
+    }
+}
+
+.list-complete-item {
+    transition: all 1s;
+}
+.list-complete-enter, .list-complete-leave-to
+/* .list-complete-leave-active below version 2.1.8 */ {
+opacity: 0;
+transform: translateY(30px);
+}
+.list-complete-leave-active {
+// position: absolute;
+}

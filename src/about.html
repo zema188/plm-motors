@@ -13,7 +13,9 @@
 </head>
 <body>	
 	<div class="wrapper">
-		@@include("./header.html", {})
+		@@include("./header.html", {
+			"item1": "<header class=\"header-w\">",
+		})
 		<main>
 			<section class="about">
 				<div class="about__content container">
@@ -139,10 +141,10 @@
 				</div>
 			</section>
 			<section class="present container">
-				<div class="present__content">
+				<div class="present__content ">
 					<div class="present__content-text">
 						<div class="present__content-title title">
-							Автомобиль
+							Любой автомобиль
 							<span>
 								под заказ к дверям
 							</span>
@@ -153,8 +155,8 @@
 						<p>
 							Наша компания - это эксклюзивный поставщик премиум-класса автомобилей. Мы гордимся нашей богатой историей
 						</p>
-						<button class="present__content-btn btn btn_black">
-							Подобрать авто
+						<button class="present__content-btn btn btn_black" popup-btn="main-form">
+							Оформить заявку
 						</button>
 					</div>
 					<div class="present__content-pic">
@@ -164,7 +166,10 @@
 			</section>
 		</main>
 		@@include("./footer.html", {})
+		@@include("./popup.html", {})
 	</div>
+	
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 	<script src="js/jquery.js"></script>
 	<script src="js/bodyScrollLock.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>

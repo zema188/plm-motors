@@ -93,6 +93,7 @@
     }
 
     &__pic {
+        overflow: hidden;
         @media (max-width: 1023px) {
             margin: 0 auto;
         }
@@ -101,6 +102,10 @@
         }
         & img {
             width: 100%;
+            transition: .4s;
+            &:hover {
+                transform: scale(1.1);
+            }            
         }
     }
 }

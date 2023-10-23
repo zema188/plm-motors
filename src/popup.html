@@ -1,4 +1,4 @@
-<div class="popup modal" popup-name="car">
+<div class="popup modal">
     <div class="popup__body">
         <div class="popup__content">
             <div class="modal__content">
@@ -73,11 +73,41 @@
                             </b>
                         </div>
                     </div>
-                    <button class="modal__btn btn btn_black">
+                    <button class="modal__btn btn btn_black" popup-btn="main-form">
                         Забронировать
                     </button>
                 </div>
             </div>
+            <div class="popup-close">
+                <img src="./img/icons/close.svg" alt="закрыть">
+            </div>
+        </div>	
+    </div>
+</div>
+
+<form class="popup main-form" popup-name="main-form">
+    <div class="popup__body">
+        <div class="popup__content">
+            <div class="popup__title">
+                Оформить заявку
+            </div>
+            <div class="popup__list">
+                <div class="input-w">
+                    <input placeholder="Фио">
+                </div>
+                <div class="input-w">
+                    <input placeholder="Телефон">
+                </div>
+            </div>
+            <div class="agreement">
+                <label class="checkbox-w">Нажимая на кнопку, вы принимаете <a href="privacy.html">Согласие</a> на обработку персональных данных
+                    <input type="checkbox" checked>
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <button class="popup__btn btn btn_black">
+                Отправить
+            </button>
             <div class="popup-close">
                 <img src="./img/icons/close.svg" alt="закрыть">
             </div>

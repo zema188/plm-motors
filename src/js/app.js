@@ -10,7 +10,8 @@ const headerLogo = document.querySelector('.header__logo')
 const previewSwiper = new Swiper('.preview__swiper', {
   slidesPerView: 1,
   spaceBetween: 0,
-  // effect: "fade",
+  effect: "fade",
+  loop: true,
   autoplay: {
     delay: 5000,
   },
@@ -25,11 +26,6 @@ const previewSwiper = new Swiper('.preview__swiper', {
 })
 
 
-//свайпер в карточке 
-const carSwiper = new Swiper('.card__swiper', {
-  slidesPerView: 1,
-  spaceBetween: 0,
-})
 
 
 //отзывы свайпер
@@ -110,83 +106,13 @@ let bigSwiper = new Swiper(".big__swiper", {
 });
 
 
-if (document.querySelectorAll('.cars__list').length) {
-  const carsList = document.querySelector('.cars__list');
-  const modal = document.querySelector('.modal');
-  const bigSwiperBLock = document.querySelector('.big__swiper-wrapper');
-  const smallSwiperBLock = document.querySelector('.small__swiper-wrapper');
-  
-  carsList.addEventListener('click', function (e) {
-    const target = e.target;
-    if (target.closest('.card')) {
-      const card = target.closest('.card');
-      modal.classList.add('active');
-      bodyScrollLock.disableBodyScroll(modal);
-  
-      const slides = card.querySelectorAll('.card__slide');
-      const name = card.querySelector('.card__name');
-      const info = card.querySelector('.card__info');
-      const price = card.querySelector('.card__btn');
-  
-      smallSwiper.destroy();
-      bigSwiper.destroy();
-  
-      bigSwiperBLock.innerHTML = '';
-      smallSwiperBLock.innerHTML = '';
-  
-      slides.forEach((slide, index) => {
-        const img = slide.querySelector('img');
-        const bigSlide = `<div class="big__swiper-slide swiper-slide">
-          <img src=${img.getAttribute('src')}>
-        </div>`;
-        const smallSlide = `<div class="small__swiper-slide swiper-slide">
-          <img src=${img.getAttribute('src')}>
-        </div>`;
-        bigSwiperBLock.innerHTML += bigSlide;
-        smallSwiperBLock.innerHTML += smallSlide;
-      });
-  
-      // После добавления новых слайдов, инициализируйте и активируйте свайперы заново.
-      smallSwiper = new Swiper(".small__swiper", {
-        loop: true,
-        spaceBetween: 10,
-        slidesPerView: 5,
-        freeMode: true,
-        watchSlidesProgress: true,
-      });
-  
-      bigSwiper = new Swiper(".big__swiper", {
-        loop: true,
-        spaceBetween: 10,
-        navigation: {
-          nextEl: ".big__swiper-next",
-          prevEl: ".big__swiper-prev",
-        },
-        thumbs: {
-          swiper: smallSwiper,
-        },
-      });
-  
-      const modalName = modal.querySelector('.modal__name');
-      const modalPrice = modal.querySelector('.modal__price');
-      const modalNameMob = modal.querySelector('.modal__name-mob');
-      const modalPriceMob = modal.querySelector('.modal__price-mob');
-      const modalInfo = modal.querySelector('.modal__info');
-      modalName.innerHTML = name.innerHTML;
-      modalPrice.innerHTML = price.innerHTML;
-      modalNameMob.innerHTML = name.innerHTML;
-      modalPriceMob.innerHTML = price.innerHTML;
-      modalInfo.innerHTML = info.innerHTML;
-    }
-  });
-}
+
 
 //пункты меню
 if (document.querySelectorAll('.header__nav-item').length) {
   const navItems = document.querySelectorAll('.header__nav-item');
 
   const hoverNav = (e) => {
-    console.log(e)
     const target = e.target
     navItems.forEach(navItem => {
       navItem.classList.add('opacity')
@@ -208,101 +134,6 @@ if (document.querySelectorAll('.header__nav-item').length) {
   navItems.forEach(link => {
     link.addEventListener('mouseout', unHoverNav);
   });
-}
-
-
-//фильтр карточек в блоке cars
-if (document.querySelectorAll('.cars__header-filter-item').length) {
-  const filterStatus = document.querySelectorAll('.cars__header-filter-item')
-  const filterBrand = document.querySelectorAll('.cars__brand-item')
-  const cars = document.querySelectorAll('.card')
-
-  const filterParams = {
-    status: 'all',
-    brand: null
-  }
-
-  filterStatus.forEach(status => {
-    status.addEventListener('click', function(e) {
-      if(this.classList.contains('btn_all-black')) {
-
-      } else {
-        filterStatus.forEach(status => {
-          status.classList.remove('btn_all-black')
-          status.classList.add('btn_black')
-
-          this.classList.remove('btn_black')
-          this.classList.add('btn_all-black')
-
-          const attribute = this.getAttribute('status')
-          filterParams.status = attribute
-          filterCars()
-        });
-      }
-    })
-  });
-
-  filterBrand.forEach(brand => {
-    brand.addEventListener('click', function(e) {
-      if(this.classList.contains('active')) {
-        this.classList.remove('active')
-        filterParams.brand = null
-
-      } else {
-        filterBrand.forEach(status => {
-          status.classList.remove('active')
-          this.classList.add('active')
-
-          const attribute = this.getAttribute('brand')
-          filterParams.brand = attribute
-        });
-      }
-      filterCars()
-    })
-  });
-
-  //сама функция для фильтра
-  function filterCars() {
-    cars.forEach(card => {
-      const status = card.getAttribute('status')
-      const brand = card.getAttribute('brand')
-      if(filterParams.status !== 'all') {
-        if(status !== filterParams.status) {
-          card.classList.add('hidden')
-          card.classList.remove('active')
-          return
-        }
-      } 
-
-      
-      if(filterParams.brand !== null) {
-        if(brand !== filterParams.brand) {
-          card.classList.add('hidden')
-          card.classList.remove('active')
-          return
-        }
-      }
-
-      card.classList.remove('hidden')
-      card.classList.add('active')
-
-    });
-    checkForNothingInList()
-  }
-
-  //функция для вывода текста если машин не найдено
-  function checkForNothingInList() {
-    const nothingBlock = document.querySelector('.nothing')
-    const carsVisible = document.querySelectorAll('.card.active');
-
-
-    if(!carsVisible.length) {
-      nothingBlock.classList.add('active')
-    } else {
-      nothingBlock.classList.remove('active')
-    }
-  }
-
 }
 
 
@@ -429,14 +260,353 @@ window.addEventListener('resize', function(event){
 
 //анимация начальная
 window.addEventListener('load', function() {
-  const blackBlock = document.querySelector('.black-block')
-  const headerLogo = document.querySelector('.header__logo')
-  const headerNav = document.querySelectorAll('.header__nav')
-  const headerNavMob = document.querySelector('.header__menu')
-  blackBlock.classList.add('anim')
-  headerLogo.classList.add('anim')
-  headerNavMob.classList.add('anim')
-  headerNav.forEach(nav => {
-    nav.classList.add('anim')
-  });
+  const headerW = document.querySelector('.header-w')
+  if(headerW.classList.contains('animation')) {
+    const blackBlock = document.querySelector('.black-block')
+    const headerLogo = document.querySelector('.header__logo')
+    const headerNav = document.querySelectorAll('.header__nav')
+    const headerNavMob = document.querySelector('.header__menu')
+    blackBlock.classList.add('anim')
+    headerLogo.classList.add('anim')
+    headerNavMob.classList.add('anim')
+    headerNav.forEach(nav => {
+      nav.classList.add('anim')
+    });
+  }
+
+  if(this.document.querySelectorAll('.cars__list').length) {
+    const carsFetched = [
+      {
+        brand: 'audi',
+        status: 'В наличии',
+        name: 'Audi Q7',
+        year: '2022',
+        mileage: 'новый',
+        fuel: 'дизель',
+        engine: '3 л (239 л.с.)',
+        price: '12 500 000 ₽',
+        images: ['./img/pic/car-1.png', './img/pic/car-1.png', './img/pic/car-1.png ']
+      },
+      {
+        brand: 'land-rover',
+        status: 'В наличии',
+        name: 'Land Rover',
+        year: '2022',
+        mileage: 'новый',
+        fuel: 'дизель',
+        engine: '3 л (239 л.с.)',
+        price: '26 050 000 ₽',
+        images: ['./img/pic/car-2.png', './img/pic/car-2.png', './img/pic/car-2.png ']
+      },
+      {
+        brand: 'bmw',
+        status: 'В пути',
+        name: 'BMW X7',
+        year: '2022',
+        mileage: 'новый',
+        fuel: 'дизель',
+        engine: '3 л (239 л.с.)',
+        price: '15 800 000 ₽',
+        images: ['./img/pic/car-3.png', './img/pic/car-3.png', './img/pic/car-3.png ']
+      },
+      {
+        brand: 'bmw',
+        status: 'В наличии',
+        name: 'BMW XM',
+        year: '2022',
+        mileage: 'новый',
+        fuel: 'дизель',
+        engine: '3 л (239 л.с.)',
+        price: '24 250 000 ₽',
+        images: ['./img/pic/car-4.png', './img/pic/car-4.png', './img/pic/car-4.png ']
+      },
+      {
+        brand: 'lamborghini',
+        status: 'В пути',
+        name: 'Lamborghini Huracan',
+        year: '2022',
+        mileage: 'новый',
+        fuel: 'дизель',
+        engine: '3 л (239 л.с.)',
+        price: '40 900 000 ₽',
+        images: ['./img/pic/car-5.png', './img/pic/car-5.png', './img/pic/car-5.png ']
+      },
+      {
+        brand: 'bmw',
+        status: 'В пути',
+        name: 'BMW M4',
+        year: '2022',
+        mileage: 'новый',
+        fuel: 'дизель',
+        engine: '3 л (239 л.с.)',
+        price: '12 500 000 ₽',
+        images: ['./img/pic/car-6.png', './img/pic/car-6.png', './img/pic/car-6.png ']
+      },
+      {
+        brand: 'genesis',
+        status: 'В наличии',
+        name: 'Genesis G90',
+        year: '2022',
+        mileage: 'новый',
+        fuel: 'дизель',
+        engine: '3 л (239 л.с.)',
+        price: '9 700 000 ₽',
+        images: ['./img/pic/car-7.png', './img/pic/car-7.png', './img/pic/car-7.png ']
+      },
+      {
+        brand: 'polaris',
+        status: 'В пути',
+        name: 'Polaris Slingshot',
+        year: '2022',
+        mileage: 'новый',
+        fuel: 'дизель',
+        engine: '3 л (239 л.с.)',
+        price: '9 700 000 ₽',
+        images: ['./img/pic/car-8.png', './img/pic/car-8.png', './img/pic/car-8.png ']
+      },
+    ];
+    
+    const vueCarsList = new Vue({
+      el: '#cars__list',
+      data: {
+        carsFiltred: carsFetched,
+      },
+    });
+    
+  
+    // const carsList = document.querySelector('.cars__list')
+    // carsList.style.height = carsList.offsetHeight + 'px'
+  
+    //свайпер в карточке 
+    const carSwiper = new Swiper('.card__swiper', {
+      slidesPerView: 1,
+      spaceBetween: 0,
+    })
+  
+    //фильтр карточек в блоке cars
+    if (document.querySelectorAll('.cars__header-filter-item').length) {
+      const filterStatus = document.querySelectorAll('.cars__header-filter-item')
+      const filterBrand = document.querySelectorAll('.cars__brand-item')
+      const cars = document.querySelectorAll('.card')
+      const filterParams = {
+        status: 'all',
+        brand: null
+      }
+  
+      filterStatus.forEach(status => {
+        status.addEventListener('click', function(e) {
+          if(this.classList.contains('btn_all-black')) {
+  
+          } else {
+            filterStatus.forEach(status => {
+              status.classList.remove('btn_all-black')
+              status.classList.add('btn_black')
+  
+              this.classList.remove('btn_black')
+              this.classList.add('btn_all-black')
+  
+              const attribute = this.getAttribute('status')
+              filterParams.status = attribute
+              filterCars()
+            });
+          }
+        })
+      });
+  
+      filterBrand.forEach(brand => {
+        brand.addEventListener('click', function(e) {
+          if(this.classList.contains('active')) {
+            this.classList.remove('active')
+            filterParams.brand = null
+  
+          } else {
+            filterBrand.forEach(status => {
+              status.classList.remove('active')
+              this.classList.add('active')
+  
+              const attribute = this.getAttribute('brand')
+              filterParams.brand = attribute
+            });
+          }
+          filterCars()
+        })
+      });
+  
+      //сама функция для фильтра
+      function filterCars() {
+        vueCarsList.carsFiltred = carsFetched.filter(card => {
+          const status = card.status;
+          const brand = card.brand;
+  
+          if (filterParams.status !== 'all' && status !== filterParams.status) {
+            return false;
+          }
+  
+          if (filterParams.brand !== null && brand !== filterParams.brand) {
+            return false;
+          }
+  
+          return true;
+        });
+        checkForNothingInList()
+  
+        setTimeout(() => {
+          //свайпер в карточке 
+          const test = new Swiper('.card__swiper', {
+            slidesPerView: 1,
+            spaceBetween: 0,
+          })
+          //свайп при ховере мышки
+          const swipersCars = document.querySelectorAll('.card__swiper')
+          console.log(swipersCars)
+          for(let i = 0; i < swipersCars.length; i++) {
+            addHoverMouseSwiper(swipersCars[i], test)
+          }
+        },0)
+  
+  
+      }
+  
+      //функция для вывода текста если машин не найдено
+      function checkForNothingInList() {
+        const nothingBlock = document.querySelector('.nothing')
+  
+        if(!vueCarsList.carsFiltred.length) {
+          nothingBlock.classList.add('active')
+        } else {
+          nothingBlock.classList.remove('active')
+        }
+      }
+  }
+  //свайп при ховере мышки
+  const swipersCars = document.querySelectorAll('.card__swiper')
+  for(let i = 0; i < swipersCars.length; i++) {
+    addHoverMouseSwiper(swipersCars[i], carSwiper)
+  }
+
+  function addHoverMouseSwiper(swiperBlock, swiper) {
+    const slides = swiperBlock.querySelectorAll('.swiper-slide');
+    const width = 1 / slides.length * 100;
+  
+    const swiperWrapper = swiperBlock.querySelector('.swiper-wrapper');
+    const id = swiperWrapper.getAttribute('id');
+    console.log('id', id)
+    console.log('swiperWrapper', swiperWrapper)
+    console.log('swiper', swiper.length)
+    let currentSwiper = null
+    if(swiper.length) {
+      currentSwiper = swiper.find(swiper => swiper.wrapperEl.getAttribute('id') === id);
+    } else {
+      currentSwiper = swiper
+    }
+    
+
+
+    for (let i = 0; i < slides.length; i++) {
+      let newDiv = document.createElement("i");
+      swiperBlock.append(newDiv);
+      newDiv.style.width = width + '%';
+      newDiv.style.left = width * i + '%';
+      newDiv.addEventListener('mouseover', function() {
+        currentSwiper.slideTo(i, 400);
+      });
+    }
+  }
+
+
+  }
+  
+
+  //открытие карточек в попапе
+  if (document.querySelectorAll('.cars__list').length) {
+    const carsList = document.querySelector('.cars__list');
+    const modal = document.querySelector('.modal');
+    const bigSwiperBLock = document.querySelector('.big__swiper-wrapper');
+    const smallSwiperBLock = document.querySelector('.small__swiper-wrapper');
+    carsList.addEventListener('click', function (e) {
+      const target = e.target;
+      if (target.closest('.card')) {
+        const card = target.closest('.card');
+        modal.classList.add('active');
+        bodyScrollLock.disableBodyScroll(modal);
+    
+        const slides = card.querySelectorAll('.card__slide');
+        const name = card.querySelector('.card__name');
+        const info = card.querySelector('.card__info');
+        const price = card.querySelector('.card__btn');
+    
+        smallSwiper.destroy();
+        bigSwiper.destroy();
+    
+        bigSwiperBLock.innerHTML = '';
+        smallSwiperBLock.innerHTML = '';
+    
+        slides.forEach((slide, index) => {
+          const img = slide.querySelector('img');
+          const bigSlide = `<div class="big__swiper-slide swiper-slide">
+            <img src=${img.getAttribute('src')}>
+          </div>`;
+          const smallSlide = `<div class="small__swiper-slide swiper-slide">
+            <img src=${img.getAttribute('src')}>
+          </div>`;
+          bigSwiperBLock.innerHTML += bigSlide;
+          smallSwiperBLock.innerHTML += smallSlide;
+        });
+    
+        // После добавления новых слайдов, инициализируйте и активируйте свайперы заново.
+        smallSwiper = new Swiper(".small__swiper", {
+          loop: true,
+          spaceBetween: 10,
+          slidesPerView: 5,
+          freeMode: true,
+          watchSlidesProgress: true,
+        });
+    
+        bigSwiper = new Swiper(".big__swiper", {
+          loop: true,
+          spaceBetween: 10,
+          navigation: {
+            nextEl: ".big__swiper-next",
+            prevEl: ".big__swiper-prev",
+          },
+          thumbs: {
+            swiper: smallSwiper,
+          },
+        });
+    
+        const modalName = modal.querySelector('.modal__name');
+        const modalPrice = modal.querySelector('.modal__price');
+        const modalNameMob = modal.querySelector('.modal__name-mob');
+        const modalPriceMob = modal.querySelector('.modal__price-mob');
+        const modalInfo = modal.querySelector('.modal__info');
+        modalName.innerHTML = name.innerHTML;
+        modalPrice.innerHTML = price.innerHTML;
+        modalNameMob.innerHTML = name.innerHTML;
+        modalPriceMob.innerHTML = price.innerHTML;
+        modalInfo.innerHTML = info.innerHTML;
+      }
+    });
+  }
 });
+
+if (document.querySelectorAll('[popup-btn]').length) {
+  const popupBtnOpen = document.querySelectorAll('[popup-btn]');
+  popupBtnOpen.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const name = btn.getAttribute('popup-btn');
+      const popup = document.querySelector(`[popup-name="${name}"]`); // Добавьте кавычки вокруг значения атрибута
+      if (popup) {
+        popup.classList.add('active');
+        bodyScrollLock.disableBodyScroll(popup);
+      }
+    });
+  });
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="files/fonts/stylesheet.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/style.min.css">
+	<title>PLM motors</title>
+</head>
+<body class="page-stock">	
+	<div class="wrapper">
+		@@include("./header.html", {
+			"item1": "<header class=\"header-w\">",
+		})
+		<main>
+			<section class="stock">
+				<div class="stock__list container">
+					<div class="stock__item _black">
+						<picture>
+							<source srcset="./img/pic/stock-1_mob.png" media="(max-width: 1023px)" />
+							<img class="stock__item-pic" src="./img/pic/stock-1.png" alt="акция">
+						</picture>
+						<div class="stock__text">
+							<p>
+								Оклеим бампер бронепленкой
+							</p>
+							<a class="stock__text-btn" href="stock-1.html">
+								<button class="btn btn_black _pc">
+									Подробнее
+								</button>
+								<button class="_mobile">
+									<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11" fill="none">
+										<path d="M10.781 8.73174L10.7593 0.365239L2.39278 0.34353C2.30561 0.331729 2.21693 0.338793 2.13273 0.364245C2.04853 0.389697 1.97078 0.432943 1.90475 0.491055C1.83872 0.549167 1.78594 0.620787 1.75 0.701069C1.71405 0.78135 1.69577 0.868418 1.6964 0.956377C1.69703 1.04434 1.71655 1.13113 1.75364 1.21089C1.79073 1.29065 1.84452 1.36151 1.91138 1.41868C1.97823 1.47584 2.05659 1.51797 2.14114 1.54222C2.2257 1.56646 2.31447 1.57226 2.40146 1.55921L8.67091 1.58526L0.365193 9.89098C0.250043 10.0061 0.185353 10.1623 0.185353 10.3252C0.185353 10.488 0.250043 10.6442 0.365193 10.7593C0.480342 10.8745 0.63652 10.9392 0.799366 10.9392C0.962212 10.9392 1.11839 10.8745 1.23354 10.7593L9.53926 2.45361L9.56531 8.72306C9.56588 8.88599 9.63116 9.04203 9.74678 9.15684C9.8624 9.27164 10.0189 9.33582 10.1818 9.33524C10.3448 9.33467 10.5008 9.26939 10.6156 9.15377C10.7304 9.03815 10.7946 8.88165 10.794 8.71872L10.781 8.73174Z" fill="white"/>
+									</svg>
+								</button>
+							</a>
+						</div>
+					</div>
+					<div class="stock__item">
+						<img class="stock__item-pic" src="./img/pic/stock-2.png" alt="акция">
+						<div class="stock__text">
+							<p>
+								Доставка  под ключ от 30 дней
+							</p>
+							<a class="stock__text-btn" href="stock-2.html">
+								<button class="btn _pc">
+									Подробнее
+								</button>
+								<button class="_mobile">
+									<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11" fill="none">
+										<path d="M10.781 8.73174L10.7593 0.365239L2.39278 0.34353C2.30561 0.331729 2.21693 0.338793 2.13273 0.364245C2.04853 0.389697 1.97078 0.432943 1.90475 0.491055C1.83872 0.549167 1.78594 0.620787 1.75 0.701069C1.71405 0.78135 1.69577 0.868418 1.6964 0.956377C1.69703 1.04434 1.71655 1.13113 1.75364 1.21089C1.79073 1.29065 1.84452 1.36151 1.91138 1.41868C1.97823 1.47584 2.05659 1.51797 2.14114 1.54222C2.2257 1.56646 2.31447 1.57226 2.40146 1.55921L8.67091 1.58526L0.365193 9.89098C0.250043 10.0061 0.185353 10.1623 0.185353 10.3252C0.185353 10.488 0.250043 10.6442 0.365193 10.7593C0.480342 10.8745 0.63652 10.9392 0.799366 10.9392C0.962212 10.9392 1.11839 10.8745 1.23354 10.7593L9.53926 2.45361L9.56531 8.72306C9.56588 8.88599 9.63116 9.04203 9.74678 9.15684C9.8624 9.27164 10.0189 9.33582 10.1818 9.33524C10.3448 9.33467 10.5008 9.26939 10.6156 9.15377C10.7304 9.03815 10.7946 8.88165 10.794 8.71872L10.781 8.73174Z" fill="black"/>
+									</svg>
+								</button>
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		@@include("./footer.html", {})
+		@@include("./popup.html", {})
+	</div>
+	
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/bodyScrollLock.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+	<script src="js/app.js"></script>
+
+</body>
+</html>
+

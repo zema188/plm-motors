@@ -13,8 +13,10 @@
 </head>
 <body>	
 
-	<div class="wrapper">
-		@@include("./header.html", {})
+	<div class="wrapper index">
+		@@include("./header.html", {
+			"item1": "<header class=\"header-w animation\">",
+		})
 		<main>
 			<section class="preview">
 				<div class="preview__content ">
@@ -36,8 +38,8 @@
 								</div>
 								<div class="preview__slide-pic">
 									<picture>
-										<source srcset="./img/pic/preview-car_mob.png" media="(max-width: 539px)" />
-										<img src="./img/pic/preview-car.png" alt="Lamborghini">
+										<source srcset="./img/pic/m2.jpg" media="(max-width: 540px)">
+										<img src="./img/pic/d2.jpg" alt="Lamborghini">
 									</picture>
 								</div>
 							</div>
@@ -45,10 +47,10 @@
 								<div class="preview__slide-text">
 									<div class="preview__slide-name">
 										<p>
-											Lamborghini
+											Land Rover
 										</p>
 										<span>
-											urus performante
+											Range Rover 530 V
 										</span>
 									</div>
 									<button class="preview__slide-btn btn">
@@ -57,29 +59,8 @@
 								</div>
 								<div class="preview__slide-pic">
 									<picture>
-										<source srcset="./img/pic/preview-car_mob.png" media="(max-width: 539px)" />
-										<img src="./img/pic/preview-car.png" alt="Lamborghini">
-									</picture>
-								</div>
-							</div>
-							<div class="preview__slide swiper-slide">
-								<div class="preview__slide-text">
-									<div class="preview__slide-name">
-										<p>
-											Lamborghini
-										</p>
-										<span>
-											urus performante
-										</span>
-									</div>
-									<button class="preview__slide-btn btn">
-										В наличии
-									</button>
-								</div>
-								<div class="preview__slide-pic">
-									<picture>
-										<source srcset="./img/pic/preview-car_mob.png" media="(max-width: 539px)" />
-										<img src="./img/pic/preview-car.png" alt="Lamborghini">
+										<source srcset="./img/pic/m1.jpg" media="(min-width: 539px)">
+										<img src="./img/pic/d1.jpg" alt="Lamborghini">
 									</picture>
 								</div>
 							</div>
@@ -106,10 +87,10 @@
 							<button class="cars__header-filter-item btn btn_all-black" status="all">
 								Все автомобили
 							</button>
-							<button class="cars__header-filter-item btn btn_black" status="in_stock">
+							<button class="cars__header-filter-item btn btn_black" status="В наличии">
 								В наличии
 							</button>
-							<button class="cars__header-filter-item btn btn_black" status="on_way">
+							<button class="cars__header-filter-item btn btn_black" status="В пути">
 								В пути
 							</button>
 						</div>
@@ -152,29 +133,23 @@
 				<div class="nothing">
 					Машины не найдены
 				</div>
-				<div class="cars__list">
-					<div class="card" href="#" brand="audi" status="in_stock">
+				<transition-group class="cars__list" id="cars__list" name="list-complete" tag="div">
+					<div class="card list-complete-item" :brand="car.brand" :status="car.status" v-for="(car, index) in carsFiltred" :key="car">
 						<div class="card__pic">
 							<div class="card__swiper swiper">
 								<div class="card__swiper-wrapper swiper-wrapper">
-									<div class="card__slide swiper-slide">
-										<img src="./img/pic/car-1.png" alt="машина">
-									</div>
-									<div class="card__slide swiper-slide">
-										<img src="./img/pic/car-1.png" alt="машина">
-									</div>
-									<div class="card__slide swiper-slide">
-										<img src="./img/pic/car-1.png" alt="машина">
+									<div class="card__slide swiper-slide" v-for="(image, index) in car.images" :key="index">
+										<img :src="image" alt="машина">
 									</div>
 								</div>
 							</div>
 							<span class="card__status">
-								В наличии
+								{{ car.status }}
 							</span>
 						</div>
 						<div class="card__text">
 							<p class="card__name">
-								Audi Q7
+								{{ car.name }}
 							</p>
 							<div class="card__info">
 								<div class="card__info-item">
@@ -182,7 +157,7 @@
 										Год
 									</span>
 									<b>
-										2022
+										{{ car.year }}
 									</b>
 								</div>
 								<div class="card__info-item">
@@ -190,7 +165,7 @@
 										Пробег, км
 									</span>
 									<b>
-										новый
+										{{ car.mileage }}
 									</b>
 								</div>
 								<div class="card__info-item">
@@ -198,7 +173,7 @@
 										новый
 									</span>
 									<b>
-										дизель
+										{{ car.fuel }}
 									</b>
 								</div>
 								<div class="card__info-item">
@@ -206,450 +181,16 @@
 										Двигатель
 									</span>
 									<b>
-										3 л (239 л.с.)
+										{{ car.engine }}
 									</b>
 								</div>
 							</div>
 							<button class="card__btn btn btn_black">
-								12 500 000 ₽
+								{{ car.price }}
 							</button>
 						</div>
 					</div>
-					<div class="card" href="#" brand="land-rover" status="in_stock">
-						<div class="card__pic">
-							<div class="card__swiper swiper">
-								<div class="card__swiper-wrapper swiper-wrapper">
-									<div class="card__slide swiper-slide">
-										<img src="./img/pic/car-2.png" alt="машина">
-									</div>
-									<div class="card__slide swiper-slide">
-										<img src="./img/pic/car-2.png" alt="машина">
-									</div>
-									<div class="card__slide swiper-slide">
-										<img src="./img/pic/car-2.png" alt="машина">
-									</div>
-								</div>
-							</div>
-							<span class="card__status">
-								В наличии
-							</span>
-						</div>
-						<div class="card__text">
-							<p class="card__name">
-								Land Rover
-							</p>
-							<div class="card__info">
-								<div class="card__info-item">
-									<span>
-										Год
-									</span>
-									<b>
-										2022
-									</b>
-								</div>
-								<div class="card__info-item">
-									<span>
-										Пробег, км
-									</span>
-									<b>
-										новый
-									</b>
-								</div>
-								<div class="card__info-item">
-									<span>
-										новый
-									</span>
-									<b>
-										дизель
-									</b>
-								</div>
-								<div class="card__info-item">
-									<span>
-										Двигатель
-									</span>
-									<b>
-										3 л (239 л.с.)
-									</b>
-								</div>
-							</div>
-							<button class="card__btn btn btn_black">
-								12 500 000 ₽
-							</button>
-						</div>
-					</div>
-					<div class="card" href="#" brand="bmw" status="on_way">
-						<div class="card__pic">
-							<div class="card__swiper swiper">
-								<div class="card__swiper-wrapper swiper-wrapper">
-									<div class="card__slide swiper-slide">
-										<img src="./img/pic/car-3.png" alt="машина">
-									</div>
-									<div class="card__slide swiper-slide">
-										<img src="./img/pic/car-3.png" alt="машина">
-									</div>
-									<div class="card__slide swiper-slide">
-										<img src="./img/pic/car-3.png" alt="машина">
-									</div>
-								</div>
-							</div>
-							<span class="card__status">
-								В пути
-							</span>
-						</div>
-						<div class="card__text">
-							<p class="card__name">
-								BMW X7
-							</p>
-							<div class="card__info">
-								<div class="card__info-item">
-									<span>
-										Год
-									</span>
-									<b>
-										2022
-									</b>
-								</div>
-								<div class="card__info-item">
-									<span>
-										Пробег, км
-									</span>
-									<b>
-										новый
-									</b>
-								</div>
-								<div class="card__info-item">
-									<span>
-										новый
-									</span>
-									<b>
-										дизель
-									</b>
-								</div>
-								<div class="card__info-item">
-									<span>
-										Двигатель
-									</span>
-									<b>
-										3 л (239 л.с.)
-									</b>
-								</div>
-							</div>
-							<button class="card__btn btn btn_black">
-								12 500 000 ₽
-							</button>
-						</div>
-					</div>
-					<div class="card" href="#" brand="bmw" status="in_stock">
-						<div class="card__pic">
-							<div class="card__swiper swiper">
-								<div class="card__swiper-wrapper swiper-wrapper">
-									<div class="card__slide swiper-slide">
-										<img src="./img/pic/car-4.png" alt="машина">
-									</div>
-									<div class="card__slide swiper-slide">
-										<img src="./img/pic/car-4.png" alt="машина">
-									</div>
-									<div class="card__slide swiper-slide">
-										<img src="./img/pic/car-4.png" alt="машина">
-									</div>
-								</div>
-							</div>
-							<span class="card__status">
-								В наличии
-							</span>
-						</div>
-						<div class="card__text">
-							<p class="card__name">
-								BMW XM
-							</p>
-							<div class="card__info">
-								<div class="card__info-item">
-									<span>
-										Год
-									</span>
-									<b>
-										2022
-									</b>
-								</div>
-								<div class="card__info-item">
-									<span>
-										Пробег, км
-									</span>
-									<b>
-										новый
-									</b>
-								</div>
-								<div class="card__info-item">
-									<span>
-										новый
-									</span>
-									<b>
-										дизель
-									</b>
-								</div>
-								<div class="card__info-item">
-									<span>
-										Двигатель
-									</span>
-									<b>
-										3 л (239 л.с.)
-									</b>
-								</div>
-							</div>
-							<button class="card__btn btn btn_black">
-								12 500 000 ₽
-							</button>
-						</div>
-					</div>
-					<div class="card" href="#" brand="lamborghini" status="on_way">
-						<div class="card__pic">
-							<div class="card__swiper swiper">
-								<div class="card__swiper-wrapper swiper-wrapper">
-									<div class="card__slide swiper-slide">
-										<img src="./img/pic/car-5.png" alt="машина">
-									</div>
-									<div class="card__slide swiper-slide">
-										<img src="./img/pic/car-5.png" alt="машина">
-									</div>
-									<div class="card__slide swiper-slide">
-										<img src="./img/pic/car-5.png" alt="машина">
-									</div>
-								</div>
-							</div>
-							<span class="card__status">
-								В пути
-							</span>
-						</div>
-						<div class="card__text">
-							<p class="card__name">
-								Lamborghini Huracan
-							</p>
-							<div class="card__info">
-								<div class="card__info-item">
-									<span>
-										Год
-									</span>
-									<b>
-										2022
-									</b>
-								</div>
-								<div class="card__info-item">
-									<span>
-										Пробег, км
-									</span>
-									<b>
-										новый
-									</b>
-								</div>
-								<div class="card__info-item">
-									<span>
-										новый
-									</span>
-									<b>
-										дизель
-									</b>
-								</div>
-								<div class="card__info-item">
-									<span>
-										Двигатель
-									</span>
-									<b>
-										3 л (239 л.с.)
-									</b>
-								</div>
-							</div>
-							<button class="card__btn btn btn_black">
-								12 500 000 ₽
-							</button>
-						</div>
-					</div>
-					<div class="card" href="#" brand="bmw" status="on_way">
-						<div class="card__pic">
-							<div class="card__swiper swiper">
-								<div class="card__swiper-wrapper swiper-wrapper">
-									<div class="card__slide swiper-slide">
-										<img src="./img/pic/car-6.png" alt="машина">
-									</div>
-									<div class="card__slide swiper-slide">
-										<img src="./img/pic/car-6.png" alt="машина">
-									</div>
-									<div class="card__slide swiper-slide">
-										<img src="./img/pic/car-6.png" alt="машина">
-									</div>
-								</div>
-							</div>
-							<span class="card__status">
-								В пути
-							</span>
-						</div>
-						<div class="card__text">
-							<p class="card__name">
-								BMW M4
-							</p>
-							<div class="card__info">
-								<div class="card__info-item">
-									<span>
-										Год
-									</span>
-									<b>
-										2022
-									</b>
-								</div>
-								<div class="card__info-item">
-									<span>
-										Пробег, км
-									</span>
-									<b>
-										новый
-									</b>
-								</div>
-								<div class="card__info-item">
-									<span>
-										новый
-									</span>
-									<b>
-										дизель
-									</b>
-								</div>
-								<div class="card__info-item">
-									<span>
-										Двигатель
-									</span>
-									<b>
-										3 л (239 л.с.)
-									</b>
-								</div>
-							</div>
-							<button class="card__btn btn btn_black">
-								12 500 000 ₽
-							</button>
-						</div>
-					</div>
-					<div class="card" href="#" brand="genesis" status="in_stock">
-						<div class="card__pic">
-							<div class="card__swiper swiper">
-								<div class="card__swiper-wrapper swiper-wrapper">
-									<div class="card__slide swiper-slide">
-										<img src="./img/pic/car-7.png" alt="машина">
-									</div>
-									<div class="card__slide swiper-slide">
-										<img src="./img/pic/car-7.png" alt="машина">
-									</div>
-									<div class="card__slide swiper-slide">
-										<img src="./img/pic/car-7.png" alt="машина">
-									</div>
-								</div>
-							</div>
-							<span class="card__status">
-								В наличии
-							</span>
-						</div>
-						<div class="card__text">
-							<p class="card__name">
-								Genesis G90
-							</p>
-							<div class="card__info">
-								<div class="card__info-item">
-									<span>
-										Год
-									</span>
-									<b>
-										2022
-									</b>
-								</div>
-								<div class="card__info-item">
-									<span>
-										Пробег, км
-									</span>
-									<b>
-										новый
-									</b>
-								</div>
-								<div class="card__info-item">
-									<span>
-										новый
-									</span>
-									<b>
-										дизель
-									</b>
-								</div>
-								<div class="card__info-item">
-									<span>
-										Двигатель
-									</span>
-									<b>
-										3 л (239 л.с.)
-									</b>
-								</div>
-							</div>
-							<button class="card__btn btn btn_black">
-								12 500 000 ₽
-							</button>
-						</div>
-					</div>
-					<div class="card" href="#" brand="polaris" status="on_way">
-						<div class="card__pic">
-							<div class="card__swiper swiper">
-								<div class="card__swiper-wrapper swiper-wrapper">
-									<div class="card__slide swiper-slide">
-										<img src="./img/pic/car-8.png" alt="машина">
-									</div>
-									<div class="card__slide swiper-slide">
-										<img src="./img/pic/car-8.png" alt="машина">
-									</div>
-									<div class="card__slide swiper-slide">
-										<img src="./img/pic/car-8.png" alt="машина">
-									</div>
-								</div>
-							</div>
-							<span class="card__status">
-								В пути
-							</span>
-						</div>
-						<div class="card__text">
-							<p class="card__name">
-								Polaris Slingshot
-							</p>
-							<div class="card__info">
-								<div class="card__info-item">
-									<span>
-										Год
-									</span>
-									<b>
-										2022
-									</b>
-								</div>
-								<div class="card__info-item">
-									<span>
-										Пробег, км
-									</span>
-									<b>
-										новый
-									</b>
-								</div>
-								<div class="card__info-item">
-									<span>
-										новый
-									</span>
-									<b>
-										дизель
-									</b>
-								</div>
-								<div class="card__info-item">
-									<span>
-										Двигатель
-									</span>
-									<b>
-										3 л (239 л.с.)
-									</b>
-								</div>
-							</div>
-							<button class="card__btn btn btn_black">
-								12 500 000 ₽
-							</button>
-						</div>
-					</div>
-				</div>
+				</transition-group>
 			</section>
 			<section class="stock">
 				<div class="stock__list container">
@@ -662,7 +203,7 @@
 							<p>
 								Оклеим бампер бронепленкой
 							</p>
-							<a class="stock__text-btn" href="#">
+							<a class="stock__text-btn" href="stock-1.html">
 								<button class="btn btn_black _pc">
 									Подробнее
 								</button>
@@ -680,7 +221,7 @@
 							<p>
 								Доставка  под ключ от 30 дней
 							</p>
-							<a class="stock__text-btn" href="#">
+							<a class="stock__text-btn" href="stock-2.html">
 								<button class="btn _pc">
 									Подробнее
 								</button>
@@ -706,9 +247,9 @@
 						<p>
 							Наша компания «PREMIUM LIFE MOTORS» осуществляет полный спектр услуг по продаже авто, сервису, лизингу, сублизингу, сопровождению и оформлению, СБКТС и ЭПТС автомобилей премиум класса. Офис и шоу рум компании находится на первом этаже бизнес центра «PREMIUM WEST» по адресу Площадь шоу рума первого этажа более 1000 кв.м. 
 						</p>
-						<button class="luxury__text-btn btn btn_black">
+						<a href="about.html" class="luxury__text-btn btn btn_black">
 							О компании
-						</button>
+						</a>
 						<img class="bg" src="./img/pic/luxury-bg_mob.png" alt="Мир роскоши и надежности">
 					</div>
 					<div class="luxury__pic">
@@ -779,7 +320,7 @@
 				<div class="present__content ">
 					<div class="present__content-text">
 						<div class="present__content-title title">
-							Автомобиль
+							Любой автомобиль
 							<span>
 								под заказ к дверям
 							</span>
@@ -790,8 +331,8 @@
 						<p>
 							Наша компания - это эксклюзивный поставщик премиум-класса автомобилей. Мы гордимся нашей богатой историей
 						</p>
-						<button class="present__content-btn btn btn_black">
-							Подобрать авто
+						<button class="present__content-btn btn btn_black" popup-btn="main-form">
+							Оформить заявку
 						</button>
 					</div>
 					<div class="present__content-pic">
@@ -800,9 +341,10 @@
 				</div>
 			</section>
 		</main>
-		@@include("./popup.html", {})
 		@@include("./footer.html", {})
-	</div>
+		@@include("./popup.html", {})
+	</header>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 	<script src="js/jquery.js"></script>
 	<script src="js/bodyScrollLock.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
