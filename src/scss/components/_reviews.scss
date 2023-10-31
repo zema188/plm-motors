@@ -55,12 +55,13 @@
     }
 
     &__slide {
+        height: auto;
         border-radius: 8px;
         background: #FFF;
         & p {
             color: #000;
             font-family: Inter;
-            font-size: 24px;
+            font-size: 16px;
             font-style: normal;
             font-weight: 400;
             line-height: 176.5%; /* 42.36px */
@@ -69,6 +70,9 @@
             @media (max-width: 539px) {
                 font-size: 18px;
                 padding: 9px 11px 8px;
+            }
+            & span {
+                display: block;
             }
         }
     }
