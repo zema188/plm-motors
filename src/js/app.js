@@ -277,95 +277,172 @@ window.addEventListener('load', function() {
   if(this.document.querySelectorAll('.cars__list').length) {
     const carsFetched = [
       {
-        brand: 'audi',
-        status: 'В наличии',
-        name: 'Audi Q7',
-        year: '2022',
-        mileage: 'новый',
+        brand: 'bmw',
+        status: 'В пути',
+        name: 'BMW Х5',
+        year: '2023',
+        mileage: '0 км',
         fuel: 'дизель',
-        engine: '3 л (239 л.с.)',
-        price: '12 500 000 ₽',
-        images: ['./img/pic/car-1.png', './img/pic/car-1.png', './img/pic/car-1.png ']
+        engine: '3.0 (298 л.с.)',
+        price: 'Цена по запросу',
+        images: ['./img/pic/БМВХ5.png']
+      },
+      {
+        brand: 'bmw',
+        status: 'В наличии',
+        name: 'BMW Х7',
+        year: '2023',
+        mileage: '0 км',
+        fuel: 'дизель',
+        engine: '3.0 (340 л.с.)',
+        price: 'Цена по запросу',
+        images: ['./img/pic/b1.jpg', './img/pic/b2.jpg', './img/pic/b3.jpg', './img/pic/b4.jpg']
+      },
+      {
+        brand: 'geely',
+        status: 'В пути',
+        name: 'GEELY Monjaro',
+        year: '2023',
+        mileage: '0 км',
+        fuel: 'бензин',
+        engine: '2.0 (238 л.с.)',
+        price: 'Цена по запросу',
+        images: ['./img/pic/Monjaro.png']
+      },
+      {
+        brand: 'hongqi',
+        status: 'В пути',
+        name: 'Hongqi HS7',
+        year: '2023',
+        mileage: '0 км',
+        fuel: 'бензин',
+        engine: '2.0 (252 л.с.)',
+        price: 'Цена по запросу',
+        images: ['./img/pic/HS7-Hongqi.png']
+      },
+      {
+        brand: 'toyota',
+        status: 'В пути',
+        name: 'Toyota Land Cruiser',
+        year: '2023',
+        mileage: '0 км',
+        fuel: 'бензин',
+        engine: '4.7 (288 л.с.)',
+        price: 'Цена по запросу',
+        images: ['./img/pic/Land-Cruiser-300.png']
+      },
+      {
+        brand: 'lixiang',
+        status: 'В наличии',
+        name: 'LiXiang L9',
+        year: '2023',
+        mileage: '0 км',
+        fuel: 'гибрид',
+        engine: '1.5 (449 л.с.)',
+        price: '9 800 000 (С НДС)',
+        images: ['./img/pic/l9.png']
+      },
+      {
+        brand: 'lixiang',
+        status: 'В наличии',
+        name: 'LiXiang L7',
+        year: '2023',
+        mileage: '0 км',
+        fuel: 'гибрид',
+        engine: '1.5 (449 л.с.)',
+        price: '8 500 000 (с НДС)',
+        images: ['./img/pic/l7.png']
+      },
+      {
+        brand: 'lexux',
+        status: 'В наличии',
+        name: 'Lexus GX',
+        year: '2023',
+        mileage: '0 км',
+        fuel: 'бензин',
+        engine: '4.6 (296 л.с.)',
+        price: '7 500 000 (без НДС)',
+        images: ['./img/pic/GX.png']
+      },
+      {
+        brand: 'hyundai',
+        status: 'В наличии',
+        name: 'Hyundai Palisade',
+        year: '2023',
+        mileage: '0 км',
+        fuel: 'дизель',
+        engine: '2.2 (200 л.с.)',
+        price: '5 600 000 (без НДС)',
+        images: ['./img/pic/Palisade.png']
+      },
+      {
+        brand: 'voyah',
+        status: 'В пути',
+        name: 'Voyah Free',
+        year: '2023',
+        mileage: '0 км',
+        fuel: 'гибрид',
+        engine: '1.5 ( 490 л.с.)',
+        price: 'Цена по запросу',
+        images: ['./img/pic/VOYAH-FREE.png']
+      },
+      {
+        brand: 'zeekr',
+        status: 'В наличии',
+        name: 'Zeekr 001',
+        year: '2023',
+        mileage: '0 км',
+        fuel: 'электро',
+        engine: '544 л.с.',
+        price: '8 700 000 (с НДС)',
+        images: ['./img/pic/Zeek-001.png']
+      },
+      {
+        brand: 'zeekr',
+        status: 'В пути',
+        name: 'Zeekr Х',
+        year: '2023',
+        mileage: '0 км',
+        fuel: 'электро',
+        engine: '272 л.с.',
+        price: 'Цена по запросу',
+        images: ['./img/pic/ZeekrX.png']
+      },
+      {
+        brand: 'cadillac',
+        status: 'В пути',
+        name: 'Cadillac Escalade',
+        year: '2023',
+        mileage: '0 км',
+        fuel: 'бензин',
+        engine: '6.2 (416 л.с.)',
+        price: 'Цена по запросу',
+        images: ['./img/pic/Кадилак.png']
       },
       {
         brand: 'land-rover',
-        status: 'В наличии',
-        name: 'Land Rover',
-        year: '2022',
-        mileage: 'новый',
-        fuel: 'дизель',
-        engine: '3 л (239 л.с.)',
-        price: '26 050 000 ₽',
-        images: ['./img/pic/car-2.png', './img/pic/car-2.png', './img/pic/car-2.png ']
-      },
-      {
-        brand: 'bmw',
         status: 'В пути',
-        name: 'BMW X7',
-        year: '2022',
-        mileage: 'новый',
-        fuel: 'дизель',
-        engine: '3 л (239 л.с.)',
-        price: '15 800 000 ₽',
-        images: ['./img/pic/car-3.png', './img/pic/car-3.png', './img/pic/car-3.png ']
+        name: 'Range Rover V',
+        year: '2023',
+        mileage: '0 км',
+        fuel: 'бензин',
+        engine: '4.4 (530 л.с.)',
+        price: 'Цена по запросу',
+        images: ['./img/pic/Рендж.png']
       },
       {
-        brand: 'bmw',
-        status: 'В наличии',
-        name: 'BMW XM',
-        year: '2022',
-        mileage: 'новый',
-        fuel: 'дизель',
-        engine: '3 л (239 л.с.)',
-        price: '24 250 000 ₽',
-        images: ['./img/pic/car-4.png', './img/pic/car-4.png', './img/pic/car-4.png ']
-      },
-      {
-        brand: 'lamborghini',
+        brand: 'toyota',
         status: 'В пути',
-        name: 'Lamborghini Huracan',
-        year: '2022',
-        mileage: 'новый',
-        fuel: 'дизель',
-        engine: '3 л (239 л.с.)',
-        price: '40 900 000 ₽',
-        images: ['./img/pic/car-5.png', './img/pic/car-5.png', './img/pic/car-5.png ']
-      },
-      {
-        brand: 'bmw',
-        status: 'В пути',
-        name: 'BMW M4',
-        year: '2022',
-        mileage: 'новый',
-        fuel: 'дизель',
-        engine: '3 л (239 л.с.)',
-        price: '12 500 000 ₽',
-        images: ['./img/pic/car-6.png', './img/pic/car-6.png', './img/pic/car-6.png ']
-      },
-      {
-        brand: 'genesis',
-        status: 'В наличии',
-        name: 'Genesis G90',
-        year: '2022',
-        mileage: 'новый',
-        fuel: 'дизель',
-        engine: '3 л (239 л.с.)',
-        price: '9 700 000 ₽',
-        images: ['./img/pic/car-7.png', './img/pic/car-7.png', './img/pic/car-7.png ']
-      },
-      {
-        brand: 'polaris',
-        status: 'В пути',
-        name: 'Polaris Slingshot',
-        year: '2022',
-        mileage: 'новый',
-        fuel: 'дизель',
-        engine: '3 л (239 л.с.)',
-        price: '9 700 000 ₽',
-        images: ['./img/pic/car-8.png', './img/pic/car-8.png', './img/pic/car-8.png ']
+        name: 'Toyota Camry',
+        year: '2023',
+        mileage: '0 км',
+        fuel: 'бензин',
+        engine: '2.0 (178 л.с.)',
+        price: 'Цена по запросу',
+        images: ['./img/pic/тайтота-камри.png']
       },
     ];
-    
+    document.querySelector('.cars__list').style.display = 'flex'
     const vueCarsList = new Vue({
       el: '#cars__list',
       data: {
@@ -511,6 +588,11 @@ window.addEventListener('load', function() {
         currentSwiper.slideTo(i, 400);
       });
     }
+
+    const pic = swiperWrapper.closest('.card__pic')
+    pic.addEventListener('mouseleave', function() {
+      currentSwiper.slideTo(0, 400);
+    })
   }
 
 

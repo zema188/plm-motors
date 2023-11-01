@@ -70,10 +70,8 @@
         display: flex;
         column-gap: 45px;
         transition: .2s;
-        @media (max-width: 1204px) {
-            width: 100%;
-            overflow: auto;
-        }
+        width: 100%;
+        overflow: auto;
         @media (max-width: 539px) {
             column-gap: 20px;
         }
@@ -97,6 +95,8 @@
         & img {
             opacity: 0.1;
             transition: .2s;
+            max-width: 100px;
+            max-height: 38px;
             @media (max-width: 539px) {
                 max-width: 69px;
             }

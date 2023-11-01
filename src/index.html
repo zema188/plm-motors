@@ -9,7 +9,8 @@
 	<link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
 	<link rel="stylesheet" type="text/css" href="css/style.min.css">
-	<title>PLM motors</title>
+	<link rel="shortcut icon" href="./img/icons/logo.svg" type="image/png">
+	<title>PREMIUM LIFE MOTORS</title>
 </head>
 <body>	
 
@@ -71,7 +72,7 @@
 											Zeekr
 										</p>
 										<span>
-											101
+											001
 										</span>
 									</div>
 									<button class="preview__slide-btn btn">
@@ -139,26 +140,14 @@
 					</div>
 					<div class="cars__header-brand">
 						<div class="cars__brand-list">
-							<div class="cars__brand-item" brand="nio">
-								<img src="./img/icons/brand-1.svg" alt="brand">
-							</div>
-							<div class="cars__brand-item" brand="audi">
-								<img src="./img/icons/brand-2.svg" alt="brand">
-							</div>
 							<div class="cars__brand-item" brand="bmw">
 								<img src="./img/icons/brand-3.svg" alt="brand">
 							</div>
-							<div class="cars__brand-item" brand="hondai">
+							<div class="cars__brand-item" brand="hyundai">
 								<img src="./img/icons/brand-4.svg" alt="brand">
 							</div>
-							<div class="cars__brand-item" brand="genesis">
-								<img src="./img/icons/brand-5.svg" alt="brand">
-							</div>
-							<div class="cars__brand-item" brand="cadilac">
+							<div class="cars__brand-item" brand="cadillac">
 								<img src="./img/icons/brand-6.svg" alt="brand">
-							</div>
-							<div class="cars__brand-item" brand="mersedes">
-								<img src="./img/icons/brand-7.svg" alt="brand">
 							</div>
 							<div class="cars__brand-item" brand="land-rover">
 								<img src="./img/icons/brand-8.svg" alt="brand">
@@ -166,8 +155,20 @@
 							<div class="cars__brand-item" brand="lexux">
 								<img src="./img/icons/brand-9.svg" alt="brand">
 							</div>
-							<div class="cars__brand-item" brand="kia">
-								<img src="./img/icons/brand-10.svg" alt="brand">
+							<div class="cars__brand-item" brand="geely">
+								<img src="./img/pic/Geely-Logo.png" alt="brand">
+							</div>
+							<div class="cars__brand-item" brand="hongqi">
+								<img src="./img/pic/Hongqi- лого.png" alt="brand">
+							</div>
+							<div class="cars__brand-item" brand="toyota">
+								<img src="./img/pic/toyota лого.png" alt="brand">
+							</div>
+							<div class="cars__brand-item" brand="voyah">
+								<img src="./img/pic/voyah лого.png" alt="brand">
+							</div>
+							<div class="cars__brand-item" brand="zeekr">
+								<img src="./img/pic/zeekr лого.png" alt="brand">
 							</div>
 						</div>
 					</div>
@@ -175,7 +176,7 @@
 				<div class="nothing">
 					Машины не найдены
 				</div>
-				<transition-group class="cars__list" id="cars__list" name="list-complete" tag="div">
+				<transition-group class="cars__list" id="cars__list" name="list-complete" tag="div" v-if="carsFiltred">
 					<div class="card list-complete-item" :brand="car.brand" :status="car.status" v-for="(car, index) in carsFiltred" :key="car">
 						<div class="card__pic">
 							<div class="card__swiper swiper">
@@ -212,7 +213,7 @@
 								</div>
 								<div class="card__info-item">
 									<span>
-										новый
+										Двигатель
 									</span>
 									<b>
 										{{ car.fuel }}
@@ -220,7 +221,7 @@
 								</div>
 								<div class="card__info-item">
 									<span>
-										Двигатель
+										Мощность
 									</span>
 									<b>
 										{{ car.engine }}
